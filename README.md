@@ -1,4 +1,16 @@
-# Flight Bridge 0.5.1
+# ⚠️ Flight Bridge 0.5.1 — экспериментальный проект
+
+> [!CAUTION]
+> **Программа не готова к использованию. Пока не устанавливайте и не запускайте её.**
+> Это экспериментальная версия, которая работает с файлами профилей контроллеров
+> Microsoft Flight Simulator. Ошибка может привести к повреждению или необратимой
+> потере профилей, настроек и других пользовательских данных. Проект опубликован
+> только для просмотра и разработки исходного кода.
+>
+> **This software is experimental and not ready for use. Do not install or run it yet.**
+> It modifies Microsoft Flight Simulator controller profile files and may cause
+> corruption or irreversible loss of profiles, settings, or other user data.
+> The repository is currently published for source review and development only.
 
 Flight Bridge автоматически переносит существующие настройки контроллеров из
 Microsoft Flight Simulator 2020 в зарегистрированные профили Microsoft Flight
