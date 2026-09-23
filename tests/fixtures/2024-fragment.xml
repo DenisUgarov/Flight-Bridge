@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Version Num="-1"/>
+<FriendlyName PlatformAvailability="1" Locked="false">Airplane controls</FriendlyName>
+<Device DeviceName="Logitech Extreme 3D" ProductID="49685" GUID="{00000000-0000-0000-0000-000000000002}" CompositeID="0" HWVer="1.0.0.0">
+ <AircraftInfo CategoryName="AIRPLANE"/>
+ <Axes><Axis AxisName="X" AxisSensitivy="0" AxisDeadZone="0"/></Axes>
+ <Context ContextName="SURFACES"><Action ActionName="KEY_AXIS_AILERONS_SET" Flag="4100" Delay="2" ValueEvent="0"><Axis AxisSensitivy="-59"/><Primary><KEY>1026</KEY></Primary></Action></Context>
+ <Context ContextName="AIRCRAFT"><Action ActionName="KEY_PARKING_BRAKES" Flag="2"/><Action ActionName="KEY_BRAKES" Flag="2"><Primary><KEY>0</KEY></Primary></Action></Context>
+</Device>

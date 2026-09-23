@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Version Num="1238"/>
+<FriendlyName>Мой джойстик</FriendlyName>
+<Device DeviceName="Logitech Extreme 3D" ProductID="49685" GUID="{00000000-0000-0000-0000-000000000001}">
+ <Axes><Axis AxisName="X" AxisSensitivy="-25" AxisDeadZone="6"/></Axes>
+ <Context ContextName="PLANE">
+  <Action ActionName="KEY_AXIS_AILERONS_SET" Flag="132"><Primary><KEY Information="Joystick L-Axis X">1026</KEY></Primary></Action>
+  <Action ActionName="KEY_PARKING_BRAKES" Flag="2"><Primary><KEY Information="Joystick Button 1">0</KEY></Primary></Action>
+  <Action ActionName="KEY_TEST_UNSUPPORTED" Flag="2"><Primary><KEY Information="Joystick Button 4">3</KEY></Primary></Action>
+ </Context>
+</Device>
