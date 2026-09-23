@@ -1,15 +1,69 @@
 # ⚠️ Flight Bridge 0.5.1 — экспериментальный проект
 
 > [!CAUTION]
-> **Программа не готова к использованию. Пока не устанавливайте и не запускайте её.**
-> Это экспериментальная версия, которая работает с файлами профилей контроллеров
-> Microsoft Flight Simulator. Ошибка может привести к повреждению или необратимой
-> потере профилей, настроек и других пользовательских данных. Проект опубликован
-> только для просмотра и разработки исходного кода.
+> **Русский:** Программа экспериментальная и ещё не готова к использованию.
+> Пока не устанавливайте и не запускайте её. Она изменяет файлы профилей
+> контроллеров Microsoft Flight Simulator и может привести к повреждению или
+> необратимой потере профилей, настроек и других пользовательских данных.
 >
-> **This software is experimental and not ready for use. Do not install or run it yet.**
-> It modifies Microsoft Flight Simulator controller profile files and may cause
-> corruption or irreversible loss of profiles, settings, or other user data.
+> **English:** This software is experimental and not ready for use. Do not install
+> or run it yet. It modifies Microsoft Flight Simulator controller profile files
+> and may cause corruption or irreversible loss of profiles, settings, or other
+> user data.
+>
+> **Deutsch:** Diese Software ist experimentell und noch nicht einsatzbereit.
+> Installieren oder starten Sie sie derzeit nicht. Sie verändert Controllerprofile
+> von Microsoft Flight Simulator und kann Profile, Einstellungen oder andere
+> Benutzerdaten beschädigen oder unwiederbringlich löschen.
+>
+> **Français :** Ce logiciel est expérimental et n'est pas encore prêt à être
+> utilisé. Ne l'installez pas et ne l'exécutez pas pour le moment. Il modifie les
+> profils de contrôleurs de Microsoft Flight Simulator et peut les endommager ou
+> entraîner la perte irréversible de profils, de réglages ou d'autres données.
+>
+> **Español:** Este software es experimental y todavía no está listo para su uso.
+> No lo instale ni lo ejecute por ahora. Modifica los perfiles de control de
+> Microsoft Flight Simulator y puede dañarlos o provocar la pérdida irreversible
+> de perfiles, ajustes u otros datos del usuario.
+>
+> **Italiano:** Questo software è sperimentale e non è ancora pronto per l'uso.
+> Per ora non installarlo né eseguirlo. Modifica i profili dei controller di
+> Microsoft Flight Simulator e può danneggiare o causare la perdita irreversibile
+> di profili, impostazioni o altri dati dell'utente.
+>
+> **Português:** Este software é experimental e ainda não está pronto para uso.
+> Não o instale nem execute por enquanto. Ele altera os perfis de controle do
+> Microsoft Flight Simulator e pode danificá-los ou causar a perda irreversível de
+> perfis, configurações ou outros dados do usuário.
+>
+> **Polski:** To oprogramowanie jest eksperymentalne i nie jest jeszcze gotowe do
+> użycia. Na razie nie należy go instalować ani uruchamiać. Modyfikuje profile
+> kontrolerów Microsoft Flight Simulator i może spowodować ich uszkodzenie lub
+> nieodwracalną utratę profili, ustawień albo innych danych użytkownika.
+>
+> **Українська:** Програма експериментальна й ще не готова до використання. Поки
+> що не встановлюйте та не запускайте її. Вона змінює файли профілів контролерів
+> Microsoft Flight Simulator і може пошкодити або безповоротно видалити профілі,
+> налаштування чи інші дані користувача.
+>
+> **Türkçe:** Bu yazılım deneyseldir ve henüz kullanıma hazır değildir. Şimdilik
+> yüklemeyin veya çalıştırmayın. Microsoft Flight Simulator denetleyici profillerini
+> değiştirir ve profillerin, ayarların ya da diğer kullanıcı verilerinin bozulmasına
+> veya geri döndürülemez biçimde kaybolmasına neden olabilir.
+>
+> **简体中文：** 此软件仍处于实验阶段，尚未准备好投入使用。请暂时不要安装或运行。
+> 它会修改 Microsoft Flight Simulator 的控制器配置文件，可能导致配置文件、设置或
+> 其他用户数据损坏或永久丢失。
+>
+> **日本語：** このソフトウェアは実験段階であり、まだ使用できる状態ではありません。
+> 現時点ではインストールまたは実行しないでください。Microsoft Flight Simulator の
+> コントローラープロファイルを変更するため、プロファイル、設定、その他のユーザーデータが
+> 破損したり、元に戻せない形で失われたりする可能性があります。
+>
+> **한국어:** 이 소프트웨어는 실험 단계이며 아직 사용할 준비가 되지 않았습니다. 현재는
+> 설치하거나 실행하지 마십시오. Microsoft Flight Simulator 컨트롤러 프로필을 변경하므로
+> 프로필, 설정 또는 기타 사용자 데이터가 손상되거나 복구할 수 없게 손실될 수 있습니다.
+>
 > The repository is currently published for source review and development only.
 
 Flight Bridge автоматически переносит существующие настройки контроллеров из
