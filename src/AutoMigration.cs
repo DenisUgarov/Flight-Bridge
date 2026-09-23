@@ -1,0 +1,95 @@
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using Microsoft.Win32;
+using System.Xml.Linq;
+using System.Diagnostics;
+namespace FSMigrator {
+public sealed class Installation {
+ public string Year, Edition, InstallPath, Root, Account; public bool Active;
+ public List<Profile> Profiles=new List<Profile>();
+ public int Rejected;
+ public override string ToString(){return Year+" · "+Edition+" · профилей: "+Profiles.Count;}
+}
+public sealed class AutomaticPlan {
+ public List<Installation> Stores=new List<Installation>();
+ public List<Plan> Changes=new List<Plan>();
+ public List<string> Issues=new List<string>();
+ public List<string> Notices=new List<string>();
+ public bool Ready {get{return Changes.Count>0 && Issues.Count==0;}}
+}
+public static class AutoMigration {
+ static string Vdf(string text,string key){var m=Regex.Match(text,"\""+Regex.Escape(key)+"\"\\s*\"([^\"]*)\"");return m.Success?m.Groups[1].Value.Replace("\\\\","\\"):null;}
+ public static List<Installation> Discover(){
+  string steam=null;using(var k=Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam")){if(k!=null)steam=k.GetValue("SteamPath") as string;}
+  if(string.IsNullOrEmpty(steam))using(var k=Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Valve\Steam")){if(k!=null)steam=k.GetValue("InstallPath") as string;}
+  string active=Convert.ToString(Registry.GetValue(@"HKEY_CURRENT_USER\Software\Valve\Steam\ActiveProcess","ActiveUser",null));
+  return Discover(steam,Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),active);
+ }
+ public static List<Installation> Discover(string steam,string local){return Discover(steam,local,null);}
+ static List<Installation> Discover(string steam,string local,string activeAccount){
+  var found=new List<Installation>();var libraries=new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+  if(!string.IsNullOrEmpty(steam)&&Directory.Exists(steam)){
+   libraries.Add(steam);string v=Path.Combine(steam,"steamapps","libraryfolders.vdf");
+   if(File.Exists(v))foreach(Match m in Regex.Matches(File.ReadAllText(v),"\"path\"\\s*\"([^\"]+)\""))libraries.Add(m.Groups[1].Value.Replace("\\\\","\\"));
+   foreach(string id in new[]{"1250410","2537590"}){
+    var installs=new List<string>();foreach(var lib in libraries){string manifest=Path.Combine(lib,"steamapps","appmanifest_"+id+".acf");if(!File.Exists(manifest))continue;string dir=Vdf(File.ReadAllText(manifest),"installdir");if(dir!=null){string install=Path.Combine(lib,"steamapps","common",dir);if(Directory.Exists(install))installs.Add(install);}}
+    string users=Path.Combine(steam,"userdata");if(!Directory.Exists(users))continue;
+    foreach(string user in Directory.GetDirectories(users)){string root=Path.Combine(user,id);if(!Directory.Exists(Path.Combine(root,"remote")))continue;
+     var s=new Installation{Year=id=="1250410"?"2020":"2024",Edition="Steam",Root=Path.GetFullPath(root),Account=Path.GetFileName(user),InstallPath=installs.Count==1?installs[0]:null,Active=!string.IsNullOrEmpty(activeAccount)&&Path.GetFileName(user)==activeAccount};
+     foreach(string f in Directory.GetFiles(Path.Combine(root,"remote"),"inputprofile_*")){if(!Regex.IsMatch(Path.GetFileName(f),@"^inputprofile_(?:inputprofile_)?[0-9]+$"))continue;try{s.Profiles.Add(Profile.Read(f));}catch(Exception ex){if(!(ex is InvalidDataException||ex is IOException||ex is System.Xml.XmlException||ex is InvalidOperationException||ex is UnauthorizedAccessException))throw;s.Rejected++;}}
+     found.Add(s);
+    }
+   }
+  }
+  foreach(string year in new[]{"2020","2024"}){string family=year=="2020"?"Microsoft.FlightSimulator_8wekyb3d8bbwe":"Microsoft.Limitless_8wekyb3d8bbwe";string root=Path.Combine(local,"Packages",family,"SystemAppData","wgs");if(!Directory.Exists(root))continue;
+   var s=new Installation{Year=year,Edition="Microsoft Store / WGS",Root=root,Account="current-windows-user",Active=true};
+   foreach(string f in SafeFiles(root)){if(Path.GetFileName(f)=="containers.index"||Path.GetFileName(f).StartsWith("container."))continue;try{s.Profiles.Add(Profile.Read(f));}catch(InvalidDataException){}catch(System.Xml.XmlException){}catch(InvalidOperationException){}catch(ArgumentException){}catch(UnauthorizedAccessException){s.Rejected++;}catch(IOException){s.Rejected++;}}found.Add(s);
+  }
+  return found;
+ }
+ public static IEnumerable<string> SafeFiles(string root){
+  CheckPath(root);foreach(string f in Directory.GetFiles(root)){CheckPath(f);yield return f;}foreach(string d in Directory.GetDirectories(root))foreach(string f in SafeFiles(d))yield return f;
+ }
+ public static void CheckPath(string path){var p=Path.GetFullPath(path);while(!string.IsNullOrEmpty(p)){if((File.GetAttributes(p)&FileAttributes.ReparsePoint)!=0)throw new IOException("Ссылки и перенаправленные каталоги не поддерживаются.");p=Path.GetDirectoryName(p);}}
+ static string Norm(string s){return Regex.Replace((s??"").ToUpperInvariant(),@"[^\p{L}\p{N}]","");}
+ static long Product(Profile p){string s=(string)p.Device.Attribute("ProductID")??"";long n;return s.StartsWith("0x",StringComparison.OrdinalIgnoreCase)?(long.TryParse(s.Substring(2),System.Globalization.NumberStyles.HexNumber,null,out n)?n:-1):(long.TryParse(s,out n)?n:-1);}
+ public static List<Profile> CompatibleSources(Installation source,Profile target){
+  var compatible=new List<Profile>();
+  foreach(var candidate in source.Profiles.Where(s=>Product(s)>=0&&Product(s)==Product(target)&&Norm((string)s.Device.Attribute("DeviceName"))==Norm((string)target.Device.Attribute("DeviceName")))){
+   try{var preview=Engine.Analyze(candidate,target,true);if(preview.Copied>0||preview.Axes>0)compatible.Add(candidate);}catch(InvalidDataException){}
+  }
+  return compatible;
+ }
+ public static AutomaticPlan Build(List<Installation> stores){return Build(stores,new Dictionary<string,string>());}
+ public static AutomaticPlan Build(List<Installation> stores,Dictionary<string,string> choices){
+  var a=new AutomaticPlan{Stores=stores};var sources=stores.Where(s=>s.Year=="2020").ToList();var targets=stores.Where(s=>s.Year=="2024").ToList();
+  var pairs=(from sourceItem in sources from targetItem in targets where sourceItem.Edition!="Steam"||targetItem.Edition!="Steam"||sourceItem.Account==targetItem.Account select new{Source=sourceItem,Target=targetItem}).ToList();
+  var activePairs=pairs.Where(pair=>pair.Source.Active&&pair.Target.Active).ToList();if(activePairs.Count==1)pairs=activePairs;
+  if(pairs.Count!=1){a.Issues.Add(pairs.Count==0?"Запустите обе игры под нужной учётной записью и сохраните хотя бы один профиль управления.":"Найдено несколько аккаунтов с профилями. Оставьте активным нужный аккаунт Steam и повторите диагностику.");return a;}
+  var source=pairs[0].Source;var target=pairs[0].Target;a.Stores=new List<Installation>{source,target};
+  if((source.Edition=="Steam"&&source.InstallPath==null)||(target.Edition=="Steam"&&target.InstallPath==null)){a.Issues.Add("Проверьте установку обеих игр в Steam, затем повторите диагностику.");return a;}
+  if(source.Rejected+target.Rejected>0){a.Issues.Add("Есть непрочитанные профили: сохраните диагностический отчёт для проверки формата.");return a;}
+  bool alreadyCurrent=false;
+  foreach(var t in target.Profiles){
+   if(t.Xml.Root.Element("FriendlyName")==null){a.Notices.Add("Один профиль MSFS 2024 оставлен без изменений: его формат не содержит имени.");continue;}
+   if(string.Equals((string)t.Xml.Root.Element("FriendlyName").Attribute("Locked"),"true",StringComparison.OrdinalIgnoreCase))continue;
+   var candidates=CompatibleSources(source,t);
+   var exact=candidates.Where(s=>Norm(s.Name)==Norm(t.Name)).ToList();
+   // A short target name such as R66 may match a source name prefixed by the device name.
+   if(exact.Count==0&&Norm(t.Name).Length>=3)exact=candidates.Where(s=>Norm(s.Name).EndsWith(Norm(t.Name),StringComparison.Ordinal)).ToList();
+   if(exact.Count==1)candidates=exact; string chosen;if(choices.TryGetValue(t.Path,out chosen))candidates=candidates.Where(s=>s.Path==chosen).ToList();
+   if(candidates.Count!=1){a.Notices.Add("Профиль «"+t.Name+"» устройства "+(string)t.Device.Attribute("DeviceName")+" оставлен без изменений: безопасное соответствие не найдено.");continue;}
+   try{var p=Engine.Analyze(candidates[0],t,true);var friendly=p.Output.Root.Element("FriendlyName");friendly.ReplaceWith(new XElement(t.Xml.Root.Element("FriendlyName")));p.OutputName=t.Name;if((p.Copied>0||p.Axes>0)&&!XNode.DeepEquals(p.Output,t.Xml))a.Changes.Add(p);else if(p.Copied>0||p.Axes>0){alreadyCurrent=true;a.Notices.Add("Профиль «"+t.Name+"» уже содержит эти настройки.");}else a.Notices.Add("Профиль «"+t.Name+"» оставлен без изменений: совместимых настроек нет.");}catch(InvalidDataException){a.Notices.Add("Профиль «"+t.Name+"» оставлен без изменений: устройство нельзя сопоставить безопасно.");}
+  }
+  if(a.Changes.Count==0&&a.Issues.Count==0)a.Issues.Add(alreadyCurrent?"Все совместимые настройки уже перенесены. Повторная запись не требуется.":"Сначала один раз сохраните пользовательский профиль управления в MSFS 2024, закройте игру и повторите запуск Flight Bridge.");return a;
+ }
+ public static void RequireClosed(){RequireClosed(null);}
+ public static void RequireClosed(IEnumerable<Installation> stores){bool steam=stores==null||stores.Any(s=>s.Edition=="Steam");foreach(var p in Process.GetProcesses()){using(p){string n;try{n=p.ProcessName;}catch{continue;}if(n.StartsWith("FlightSimulator",StringComparison.OrdinalIgnoreCase)||(steam&&(n.Equals("steam",StringComparison.OrdinalIgnoreCase)||n.Equals("steamwebhelper",StringComparison.OrdinalIgnoreCase))))throw new IOException(steam?"Полностью закройте Steam и оба симулятора, затем повторите действие.":"Полностью закройте оба симулятора, затем повторите действие.");}}}
+ public static string RedactedReport(AutomaticPlan a){return "Flight Bridge 0.5.1\r\n"+string.Join("\r\n",a.Stores.Select(s=>s.Year+"; "+s.Edition+"; profiles="+s.Profiles.Count+"; unreadable="+s.Rejected+"; install="+(s.InstallPath!=null)))+"\r\nPlans="+a.Changes.Count+"; skipped="+a.Notices.Count+"; blockers="+a.Issues.Count+"\r\nNo user names, paths, device GUIDs or profile names included.";}
+}
+}
+
+

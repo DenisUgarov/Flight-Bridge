@@ -1,0 +1,927 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Languages>
+ <Language Code="en" Name="English">
+  <Title>Flight Bridge Setup</Title>
+  <Tagline>Familiar controls. A new simulator.</Tagline>
+  <Description>Move MSFS 2020 controller profiles to MSFS 2024.
+Backups and a clear way back.</Description>
+  <Language>Language</Language>
+  <Install>Install</Install>
+  <Cancel>Cancel</Cancel>
+  <Location>Installation folder (current user)</Location>
+  <Help>How it works</Help>
+  <InstalledTitle>Installation complete</InstalledTitle>
+  <Installed>Flight Bridge is available in the Start menu. Your backups stay in the folder you choose.</Installed>
+  <InstallFailed>Installation failed</InstallFailed>
+  <CloseApp>Close Flight Bridge before continuing.</CloseApp>
+  <RemoveTitle>Uninstall Flight Bridge</RemoveTitle>
+  <RemoveQuestion>Remove Flight Bridge? Your profiles and backups will be kept.</RemoveQuestion>
+  <Remove>Uninstall</Remove>
+  <Removed>Flight Bridge has been removed. Your profiles and backups are safe.</Removed>
+  <RemoveFailed>Removal failed</RemoveFailed>
+  <WaitFailed>Could not wait for Setup to close.</WaitFailed>
+  <LinkFolder>The installation folder is a link. Removal was stopped.</LinkFolder>
+  <OK>OK</OK>
+  <CheckTitle>Device check</CheckTitle>
+  <CheckIntro>Reads Windows device status and installed driver versions. It does not install drivers or certify simulator compatibility.</CheckIntro>
+  <Checking>Checking devices…</Checking>
+  <CheckDetails>Device details</CheckDetails>
+  <Rescan>Check again</Rescan>
+  <NoDevices>No game controllers detected. Connect the controller and check again. You can still install.</NoDevices>
+  <DataFound>local data found</DataFound>
+  <DataNotFound>local data not found; this does not prove the game is absent</DataNotFound>
+  <ScanIncomplete>Some information is unavailable. Installation can continue; use Device Manager to check manually.</ScanIncomplete>
+  <MissingDriver>driver missing</MissingDriver>
+  <DisabledDevice>device disabled</DisabledDevice>
+  <DeviceProblem>Windows reports a problem</DeviceProblem>
+  <DeviceReady>Windows reports no device error</DeviceReady>
+  <UnknownDevice>unknown</UnknownDevice>
+  <Controller>Game controller</Controller>
+  <OtherDevice>Other USB device — check its identity</OtherDevice>
+  <Driver>Driver</Driver>
+  <DriverAdvice>Use Windows Update first. If needed, choose the exact model and Windows version on the manufacturer's official site.</DriverAdvice>
+  <ProblemAdvice>Enable the device in Device Manager, or reconnect it and restart Windows. Follow the reported error code.</ProblemAdvice>
+  <InboxDriver>A Microsoft driver or an old driver date is not a fault by itself. Only update when needed. Test axes and buttons in Windows before migration.</InboxDriver>
+  <Support>Official support</Support>
+  <WindowsUpdate>Windows Update</WindowsUpdate>
+  <TestControls>Test controls</TestControls>
+  <DeviceManager>Device Manager</DeviceManager>
+  <Guide>Flight Bridge 0.3 — Windows 10/11. Local profile conversion with backups. No account is required. This is a preview version; in-simulator operation has not been verified.
+
+INSTALLATION
+Run FlightBridge-Setup.exe, select your language and click Install. No administrator account is required. Open Flight Bridge from the Start menu. To update, close the app and run the new installer. To uninstall, use Windows Settings → Apps. The installer is unsigned; Windows may show a warning.
+
+TRANSFER
+1. Save your controller settings in MSFS 2020 and close the simulator.
+2. In Flight Bridge, use «Найти автоматически» (Find automatically), «Файлы…» (Files) or «Папка…» (Folder) to choose 2020 profiles.
+3. In MSFS 2024, open Settings → Controls → device → category gear → Export. Export a profile for the same device and select it with «Выбрать файлы…» (Choose files).
+4. Click «Проверить перенос» (Check transfer). Review missing commands, relocated contexts and shared inputs.
+5. Save this profile, or use «Добавить в список переноса» (Add to transfer list) for multiple devices. When the list is nonempty, Save exports the list.
+6. Import each MSFS2024-migrated.xml in the appropriate device/category in MSFS 2024. Select the new profile marked FB and check buttons, axes, inversion and sensitivity before flying.
+
+BACKUPS AND RESTORE
+Backups are enabled by default. Each session contains separate profile folders, original-2020.xml, original-2024.xml, backup.xml and report.txt. To revert, select your previous profile in the simulator. Alternatively, open «Восстановление» (Restore), choose a backup and save the restored XML under a new filename, then import it in the simulator. SHA-256 verifies the backup's integrity. Backups cover selected profiles, not all simulator settings. If backup is disabled, recovery through the app is unavailable.
+
+LIMITATIONS
+The application interface and generated reports are currently in Russian; the installer and this guide are translated. Import in the simulator remains manual. Only readable XML profiles are supported, including MSFS multi-root fragments; encrypted containers are not supported. Relocated KEY commands require a unique match and in-game review. Unknown commands are skipped. Original game files and cloud saves are not changed. Backup folders remain after uninstall.
+
+FILES
+The default backup library is Documents/FlightBridge; you may choose another folder. The last location is remembered in %LOCALAPPDATA%/FlightBridge/library.txt. Install location: %LOCALAPPDATA%/Programs/FlightBridge. Translated guides are in docs. A temporary uninstaller helper can remain in %TEMP% until Windows cleans temporary files.
+
+Device check
+Setup checks connected controllers and Windows driver status in the background. Device details show error codes and recommended next steps. You can open Windows Update, Device Manager, the Windows controls test and official support pages. Drivers and firmware are never installed automatically. A missing controller or an incomplete scan does not block installation. This check does not guarantee simulator compatibility.</Guide>
+ </Language>
+ <Language Code="ru" Name="Русский">
+  <Title>Установка Flight Bridge</Title>
+  <Tagline>Знакомое управление. Новый симулятор.</Tagline>
+  <Description>Перенос профилей MSFS 2020 → MSFS 2024.
+Резервные копии и понятное восстановление.</Description>
+  <Language>Язык</Language>
+  <Install>Установить</Install>
+  <Cancel>Отмена</Cancel>
+  <Location>Папка установки (текущий пользователь)</Location>
+  <Help>Как это работает</Help>
+  <InstalledTitle>Установка завершена</InstalledTitle>
+  <Installed>Flight Bridge доступен в меню «Пуск». Копии сохраняются в выбранной вами папке.</Installed>
+  <InstallFailed>Не удалось установить</InstallFailed>
+  <CloseApp>Закройте Flight Bridge перед продолжением.</CloseApp>
+  <RemoveTitle>Удаление Flight Bridge</RemoveTitle>
+  <RemoveQuestion>Удалить Flight Bridge? Профили и резервные копии сохранятся.</RemoveQuestion>
+  <Remove>Удалить</Remove>
+  <Removed>Flight Bridge удалён. Профили и резервные копии сохранены.</Removed>
+  <RemoveFailed>Не удалось удалить</RemoveFailed>
+  <WaitFailed>Не удалось дождаться закрытия установщика.</WaitFailed>
+  <LinkFolder>Папка установки является ссылкой. Удаление остановлено.</LinkFolder>
+  <OK>ОК</OK>
+  <CheckTitle>Проверка устройств</CheckTitle>
+  <CheckIntro>Читает состояние устройств Windows и версии драйверов. Не устанавливает драйверы и не подтверждает совместимость с симулятором.</CheckIntro>
+  <Checking>Проверяем устройства…</Checking>
+  <CheckDetails>Подробнее об устройствах</CheckDetails>
+  <Rescan>Проверить снова</Rescan>
+  <NoDevices>Игровые контроллеры не найдены. Подключите устройство и повторите проверку. Установку можно продолжить.</NoDevices>
+  <DataFound>найдены локальные данные</DataFound>
+  <DataNotFound>локальные данные не найдены; игра может быть установлена</DataNotFound>
+  <ScanIncomplete>Часть данных недоступна. Установку можно продолжить; проверьте устройства в Диспетчере устройств.</ScanIncomplete>
+  <MissingDriver>драйвер отсутствует</MissingDriver>
+  <DisabledDevice>устройство отключено</DisabledDevice>
+  <DeviceProblem>Windows сообщает о проблеме</DeviceProblem>
+  <DeviceReady>Windows не сообщает об ошибке устройства</DeviceReady>
+  <UnknownDevice>неизвестно</UnknownDevice>
+  <Controller>Игровой контроллер</Controller>
+  <OtherDevice>Другое USB-устройство — уточните модель</OtherDevice>
+  <Driver>Драйвер</Driver>
+  <DriverAdvice>Сначала проверьте Windows Update. При необходимости выберите точную модель и версию Windows на официальном сайте производителя.</DriverAdvice>
+  <ProblemAdvice>Включите устройство в Диспетчере устройств либо переподключите его и перезапустите Windows. Учитывайте указанный код ошибки.</ProblemAdvice>
+  <InboxDriver>Драйвер Microsoft или старая дата драйвера сами по себе не означают неисправность. Обновляйте только при необходимости. Перед переносом проверьте оси и кнопки в Windows.</InboxDriver>
+  <Support>Официальная поддержка</Support>
+  <WindowsUpdate>Windows Update</WindowsUpdate>
+  <TestControls>Проверить управление</TestControls>
+  <DeviceManager>Диспетчер устройств</DeviceManager>
+  <Guide>Flight Bridge 0.3 — Windows 10/11. Локальный перенос профилей с резервными копиями. Учётная запись не нужна. Это предварительная версия; работа управления внутри симулятора ещё не проверена.
+
+УСТАНОВКА
+Запустите FlightBridge-Setup.exe, выберите язык и нажмите «Установить». Права администратора не нужны. Запускайте приложение из меню «Пуск». Для обновления закройте приложение и запустите новый установщик. Удаление: Параметры Windows → Приложения. Установщик не подписан; Windows может показать предупреждение.
+
+ПЕРЕНОС
+1. Сохраните управление в MSFS 2020 и закройте симулятор.
+2. Выберите профили 2020 кнопками «Найти автоматически», «Файлы…» или «Папка…».
+3. В MSFS 2024: Настройки → Управление → устройство → шестерёнка категории → Экспорт. Экспортируйте профиль того же устройства и добавьте его кнопкой «Выбрать файлы…».
+4. Нажмите «Проверить перенос». Просмотрите пропущенные команды, новые контексты и общие кнопки.
+5. Сохраните профиль либо нажмите «Добавить в список переноса» для нескольких устройств. Если список непустой, кнопка сохранения сохраняет список.
+6. Импортируйте каждый MSFS2024-migrated.xml в нужную категорию устройства в игре. Выберите профиль с отметкой FB и проверьте кнопки, оси, инверсию и чувствительность.
+
+КОПИИ И ВОССТАНОВЛЕНИЕ
+Бэкап включён по умолчанию. В папках сессии находятся original-2020.xml, original-2024.xml, backup.xml и report.txt. Для возврата выберите прежний профиль в игре либо откройте «Восстановление», выберите копию, сохраните XML под новым именем и импортируйте его в симулятор. Целостность проверяется по SHA-256. Копируются выбранные профили, не все настройки симулятора. При отключённом бэкапе возврат через приложение недоступен.
+
+ОГРАНИЧЕНИЯ
+Интерфейс приложения и отчёты пока на русском. Импорт в симулятор выполняется вручную. Поддерживаются читаемые XML, в том числе без общего корня; зашифрованные контейнеры не поддерживаются. Перемещённые KEY-команды требуют однозначного совпадения и проверки в игре. Неизвестные команды пропускаются. Файлы игры и облачные сохранения не меняются. Копии остаются после удаления.
+
+ФАЙЛЫ
+Библиотека по умолчанию: Документы/FlightBridge; можно выбрать другую папку. Последний путь хранится в %LOCALAPPDATA%/FlightBridge/library.txt. Установка: %LOCALAPPDATA%/Programs/FlightBridge. Переведённые руководства — в docs. Временный помощник удаления может оставаться в %TEMP% до очистки Windows.
+
+Проверка устройств
+Установщик в фоне проверяет подключённые контроллеры и состояние драйверов Windows. В сведениях об устройствах отображаются коды ошибок и дальнейшие действия. Можно открыть Windows Update, Диспетчер устройств, проверку управления Windows и официальную поддержку. Драйверы и прошивки не устанавливаются автоматически. Отсутствие контроллера или неполная проверка не блокируют установку. Проверка не гарантирует совместимость с симулятором.</Guide>
+ </Language>
+ <Language Code="de" Name="Deutsch">
+  <Title>Flight Bridge installieren</Title>
+  <Tagline>Vertraute Steuerung. Neuer Simulator.</Tagline>
+  <Description>Controllerprofile von MSFS 2020 nach MSFS 2024 übertragen.
+Mit Sicherung und Wiederherstellung.</Description>
+  <Language>Sprache</Language>
+  <Install>Installieren</Install>
+  <Cancel>Abbrechen</Cancel>
+  <Location>Installationsordner (aktueller Benutzer)</Location>
+  <Help>So funktioniert es</Help>
+  <InstalledTitle>Installation abgeschlossen</InstalledTitle>
+  <Installed>Flight Bridge ist im Startmenü verfügbar. Sicherungen bleiben im gewählten Ordner.</Installed>
+  <InstallFailed>Installation fehlgeschlagen</InstallFailed>
+  <CloseApp>Schließen Sie Flight Bridge, bevor Sie fortfahren.</CloseApp>
+  <RemoveTitle>Flight Bridge deinstallieren</RemoveTitle>
+  <RemoveQuestion>Flight Bridge entfernen? Profile und Sicherungen bleiben erhalten.</RemoveQuestion>
+  <Remove>Deinstallieren</Remove>
+  <Removed>Flight Bridge wurde entfernt. Profile und Sicherungen bleiben erhalten.</Removed>
+  <RemoveFailed>Deinstallation fehlgeschlagen</RemoveFailed>
+  <WaitFailed>Das Installationsprogramm konnte nicht rechtzeitig beendet werden.</WaitFailed>
+  <LinkFolder>Der Installationsordner ist eine Verknüpfung. Die Entfernung wurde gestoppt.</LinkFolder>
+  <OK>OK</OK>
+  <CheckTitle>Geräteprüfung</CheckTitle>
+  <CheckIntro>Liest Windows-Gerätestatus und Treiberversionen. Installiert keine Treiber und bestätigt keine Simulator-Kompatibilität.</CheckIntro>
+  <Checking>Geräte werden geprüft…</Checking>
+  <CheckDetails>Gerätedetails</CheckDetails>
+  <Rescan>Erneut prüfen</Rescan>
+  <NoDevices>Keine Spielcontroller erkannt. Gerät anschließen und erneut prüfen. Die Installation ist trotzdem möglich.</NoDevices>
+  <DataFound>lokale Daten gefunden</DataFound>
+  <DataNotFound>keine lokalen Daten gefunden; das Spiel kann trotzdem installiert sein</DataNotFound>
+  <ScanIncomplete>Einige Angaben fehlen. Installation möglich; Geräte im Geräte-Manager prüfen.</ScanIncomplete>
+  <MissingDriver>Treiber fehlt</MissingDriver>
+  <DisabledDevice>Gerät deaktiviert</DisabledDevice>
+  <DeviceProblem>Windows meldet ein Problem</DeviceProblem>
+  <DeviceReady>Windows meldet keinen Gerätefehler</DeviceReady>
+  <UnknownDevice>unbekannt</UnknownDevice>
+  <Controller>Spielcontroller</Controller>
+  <OtherDevice>Anderes USB-Gerät — Identität prüfen</OtherDevice>
+  <Driver>Treiber</Driver>
+  <DriverAdvice>Zuerst Windows Update prüfen. Falls nötig, das genaue Modell und die Windows-Version auf der offiziellen Herstellerseite wählen.</DriverAdvice>
+  <ProblemAdvice>Gerät im Geräte-Manager aktivieren oder neu anschließen und Windows neu starten. Den Fehlercode beachten.</ProblemAdvice>
+  <InboxDriver>Ein Microsoft-Treiber oder ein altes Treiberdatum ist allein kein Fehler. Nur bei Bedarf aktualisieren. Achsen und Tasten vor der Übertragung in Windows testen.</InboxDriver>
+  <Support>Offizieller Support</Support>
+  <WindowsUpdate>Windows Update</WindowsUpdate>
+  <TestControls>Steuerung testen</TestControls>
+  <DeviceManager>Geräte-Manager</DeviceManager>
+  <Guide>Flight Bridge 0.3 — Windows 10/11. Lokale Profilübertragung mit Sicherungen, ohne Benutzerkonto. Vorabversion: Die Steuerung wurde noch nicht im Simulator geprüft.
+
+INSTALLATION
+FlightBridge-Setup.exe starten, Sprache wählen und auf Installieren klicken. Administratorrechte sind nicht erforderlich. Start über das Startmenü. Zum Aktualisieren die App schließen und das neue Installationsprogramm starten. Entfernen über Windows-Einstellungen → Apps. Das Installationsprogramm ist nicht signiert; Windows kann eine Warnung anzeigen.
+
+ÜBERTRAGUNG
+1. Steuerung in MSFS 2020 speichern und den Simulator schließen.
+2. 2020-Profile mit «Найти автоматически» (automatisch suchen), «Файлы…» (Dateien) oder «Папка…» (Ordner) wählen.
+3. In MSFS 2024: Einstellungen → Steuerung → Gerät → Zahnrad der Kategorie → Exportieren. Profil desselben Geräts exportieren und über «Выбрать файлы…» auswählen.
+4. «Проверить перенос» (Übertragung prüfen) anklicken. Fehlende Befehle, geänderte Kontexte und gemeinsame Eingaben prüfen.
+5. Profil speichern oder mit «Добавить в список переноса» mehrere Profile zur Liste hinzufügen. Ist die Liste gefüllt, wird die Liste exportiert.
+6. Jede MSFS2024-migrated.xml in die passende Gerätekategorie importieren. Neues Profil mit FB auswählen; Tasten, Achsen, Umkehrung und Empfindlichkeit vor dem Flug prüfen.
+
+SICHERUNG UND WIEDERHERSTELLUNG
+Sicherungen sind standardmäßig aktiv. Die Sitzungsordner enthalten original-2020.xml, original-2024.xml, backup.xml und report.txt. Zurückkehren durch Auswahl des bisherigen Profils im Spiel oder über «Восстановление» (Wiederherstellung): Sicherung wählen, XML unter neuem Namen speichern und im Spiel importieren. SHA-256 prüft die Integrität. Gesichert werden ausgewählte Profile, nicht alle Simulatoreinstellungen. Ohne Sicherung ist keine Wiederherstellung über die App möglich.
+
+GRENZEN
+App-Oberfläche und Berichte sind derzeit russisch; Installationsprogramm und Anleitung sind übersetzt. Der Import ins Spiel erfolgt manuell. Lesbare XML-Profile einschließlich mehrerer Wurzelelemente werden unterstützt, verschlüsselte Container nicht. Verschobene KEY-Befehle brauchen eine eindeutige Zuordnung und Prüfung im Spiel. Unbekannte Befehle werden übersprungen. Spieldateien und Cloud-Speicher bleiben unverändert. Sicherungen bleiben nach der Deinstallation erhalten.
+
+DATEIEN
+Standardbibliothek: Dokumente/FlightBridge; ein anderer Ordner ist wählbar. Letzter Pfad: %LOCALAPPDATA%/FlightBridge/library.txt. Installation: %LOCALAPPDATA%/Programs/FlightBridge. Übersetzte Anleitungen stehen in docs. Ein temporärer Deinstallationshelfer kann bis zur Windows-Bereinigung in %TEMP% verbleiben.
+
+Geräteprüfung
+Setup prüft angeschlossene Controller und den Windows-Treiberstatus im Hintergrund. Die Gerätedetails zeigen Fehlercodes und nächste Schritte. Windows Update, Geräte-Manager, Steuerungstest und offizielle Supportseiten lassen sich öffnen. Treiber und Firmware werden nie automatisch installiert. Fehlende Controller oder eine unvollständige Prüfung blockieren die Installation nicht. Die Prüfung garantiert keine Simulator-Kompatibilität.</Guide>
+ </Language>
+ <Language Code="fr" Name="Français">
+  <Title>Installation de Flight Bridge</Title>
+  <Tagline>Vos commandes habituelles. Un nouveau simulateur.</Tagline>
+  <Description>Transférez les profils de MSFS 2020 vers MSFS 2024.
+Avec sauvegarde et restauration.</Description>
+  <Language>Langue</Language>
+  <Install>Installer</Install>
+  <Cancel>Annuler</Cancel>
+  <Location>Dossier d’installation (utilisateur actuel)</Location>
+  <Help>Mode d’emploi</Help>
+  <InstalledTitle>Installation terminée</InstalledTitle>
+  <Installed>Flight Bridge est disponible dans le menu Démarrer. Les sauvegardes restent dans le dossier choisi.</Installed>
+  <InstallFailed>Échec de l’installation</InstallFailed>
+  <CloseApp>Fermez Flight Bridge avant de continuer.</CloseApp>
+  <RemoveTitle>Désinstaller Flight Bridge</RemoveTitle>
+  <RemoveQuestion>Supprimer Flight Bridge ? Vos profils et sauvegardes seront conservés.</RemoveQuestion>
+  <Remove>Désinstaller</Remove>
+  <Removed>Flight Bridge a été supprimé. Vos profils et sauvegardes sont conservés.</Removed>
+  <RemoveFailed>Échec de la désinstallation</RemoveFailed>
+  <WaitFailed>Impossible d’attendre la fermeture du programme d’installation.</WaitFailed>
+  <LinkFolder>Le dossier d’installation est un lien. La suppression a été arrêtée.</LinkFolder>
+  <OK>OK</OK>
+  <CheckTitle>Vérification des périphériques</CheckTitle>
+  <CheckIntro>Lit l’état Windows et les versions des pilotes. N’installe aucun pilote et ne certifie pas la compatibilité avec le simulateur.</CheckIntro>
+  <Checking>Vérification en cours…</Checking>
+  <CheckDetails>Détails des périphériques</CheckDetails>
+  <Rescan>Vérifier à nouveau</Rescan>
+  <NoDevices>Aucun contrôleur de jeu détecté. Branchez-le et réessayez. Vous pouvez poursuivre l’installation.</NoDevices>
+  <DataFound>données locales trouvées</DataFound>
+  <DataNotFound>aucune donnée locale trouvée ; le jeu peut être installé</DataNotFound>
+  <ScanIncomplete>Certaines informations sont indisponibles. Installation possible ; vérifiez dans le Gestionnaire de périphériques.</ScanIncomplete>
+  <MissingDriver>pilote absent</MissingDriver>
+  <DisabledDevice>périphérique désactivé</DisabledDevice>
+  <DeviceProblem>Windows signale un problème</DeviceProblem>
+  <DeviceReady>Windows ne signale aucune erreur</DeviceReady>
+  <UnknownDevice>inconnu</UnknownDevice>
+  <Controller>Contrôleur de jeu</Controller>
+  <OtherDevice>Autre périphérique USB — vérifier son identité</OtherDevice>
+  <Driver>Pilote</Driver>
+  <DriverAdvice>Vérifiez d’abord Windows Update. Si nécessaire, choisissez le modèle exact et la version Windows sur le site officiel du fabricant.</DriverAdvice>
+  <ProblemAdvice>Activez le périphérique dans le Gestionnaire de périphériques ou reconnectez-le et redémarrez Windows. Suivez le code d’erreur indiqué.</ProblemAdvice>
+  <InboxDriver>Un pilote Microsoft ou une ancienne date ne constitue pas un défaut en soi. Ne mettez à jour que si nécessaire. Testez les axes et boutons dans Windows avant le transfert.</InboxDriver>
+  <Support>Assistance officielle</Support>
+  <WindowsUpdate>Windows Update</WindowsUpdate>
+  <TestControls>Tester les commandes</TestControls>
+  <DeviceManager>Gestionnaire de périphériques</DeviceManager>
+  <Guide>Flight Bridge 0.3 — Windows 10/11. Transfert local de profils avec sauvegardes, sans compte. Version préliminaire : le fonctionnement des commandes dans le simulateur n’a pas encore été vérifié.
+
+INSTALLATION
+Lancez FlightBridge-Setup.exe, choisissez la langue puis Installer. Aucun droit administrateur n’est nécessaire. Lancez l’application depuis Démarrer. Pour mettre à jour, fermez l’application et lancez le nouvel installateur. Désinstallation : Paramètres Windows → Applications. L’installateur n’est pas signé ; Windows peut afficher un avertissement.
+
+TRANSFERT
+1. Enregistrez les commandes dans MSFS 2020 et fermez le simulateur.
+2. Choisissez les profils 2020 avec «Найти автоматически» (recherche automatique), «Файлы…» (fichiers) ou «Папка…» (dossier).
+3. Dans MSFS 2024 : Paramètres → Commandes → périphérique → roue dentée de la catégorie → Exporter. Exportez un profil du même périphérique et sélectionnez-le avec «Выбрать файлы…».
+4. Cliquez sur «Проверить перенос» (vérifier le transfert). Examinez les commandes absentes, les changements de contexte et les entrées partagées.
+5. Enregistrez le profil ou utilisez «Добавить в список переноса» pour préparer plusieurs profils. Si la liste n’est pas vide, l’enregistrement exporte la liste.
+6. Importez chaque MSFS2024-migrated.xml dans la bonne catégorie du périphérique. Sélectionnez le nouveau profil marqué FB et vérifiez boutons, axes, inversion et sensibilité avant de voler.
+
+SAUVEGARDE ET RESTAURATION
+La sauvegarde est activée par défaut. Les dossiers de session contiennent original-2020.xml, original-2024.xml, backup.xml et report.txt. Pour revenir en arrière, sélectionnez l’ancien profil dans le jeu ou ouvrez «Восстановление» (restauration), choisissez une sauvegarde, enregistrez le XML sous un nouveau nom et importez-le dans le jeu. SHA-256 vérifie l’intégrité. Seuls les profils sélectionnés sont sauvegardés, pas tous les réglages du simulateur. Sans sauvegarde, la restauration via l’application est indisponible.
+
+LIMITES
+L’interface de l’application et les rapports restent en russe ; l’installateur et ce guide sont traduits. L’importation dans le jeu est manuelle. Les XML lisibles, y compris les fragments à plusieurs racines, sont pris en charge ; les conteneurs chiffrés ne le sont pas. Les commandes KEY déplacées exigent une correspondance unique et un contrôle dans le jeu. Les commandes inconnues sont ignorées. Les fichiers du jeu et les sauvegardes cloud restent inchangés. Les copies restent après désinstallation.
+
+FICHIERS
+Bibliothèque par défaut : Documents/FlightBridge, modifiable. Dernier chemin : %LOCALAPPDATA%/FlightBridge/library.txt. Installation : %LOCALAPPDATA%/Programs/FlightBridge. Guides traduits dans docs. Un assistant temporaire de désinstallation peut rester dans %TEMP% jusqu’au nettoyage Windows.
+
+Vérification des périphériques
+L’installateur vérifie les contrôleurs branchés et les pilotes Windows en arrière-plan. Les détails indiquent les codes d’erreur et les actions conseillées. Vous pouvez ouvrir Windows Update, le Gestionnaire de périphériques, le test des commandes et l’assistance officielle. Aucun pilote ni micrologiciel n’est installé automatiquement. Un contrôleur absent ou une vérification incomplète ne bloque pas l’installation. La compatibilité avec le simulateur n’est pas garantie.</Guide>
+ </Language>
+ <Language Code="es" Name="Español">
+  <Title>Instalación de Flight Bridge</Title>
+  <Tagline>Tus controles habituales. Un nuevo simulador.</Tagline>
+  <Description>Transfiere perfiles de MSFS 2020 a MSFS 2024.
+Con copias de seguridad y restauración.</Description>
+  <Language>Idioma</Language>
+  <Install>Instalar</Install>
+  <Cancel>Cancelar</Cancel>
+  <Location>Carpeta de instalación (usuario actual)</Location>
+  <Help>Cómo funciona</Help>
+  <InstalledTitle>Instalación completada</InstalledTitle>
+  <Installed>Flight Bridge está disponible en Inicio. Las copias se guardan en la carpeta elegida.</Installed>
+  <InstallFailed>Error de instalación</InstallFailed>
+  <CloseApp>Cierra Flight Bridge antes de continuar.</CloseApp>
+  <RemoveTitle>Desinstalar Flight Bridge</RemoveTitle>
+  <RemoveQuestion>¿Eliminar Flight Bridge? Se conservarán los perfiles y las copias de seguridad.</RemoveQuestion>
+  <Remove>Desinstalar</Remove>
+  <Removed>Flight Bridge se ha eliminado. Los perfiles y las copias se han conservado.</Removed>
+  <RemoveFailed>Error de desinstalación</RemoveFailed>
+  <WaitFailed>No se pudo esperar al cierre del instalador.</WaitFailed>
+  <LinkFolder>La carpeta de instalación es un enlace. Se ha detenido la eliminación.</LinkFolder>
+  <OK>Aceptar</OK>
+  <CheckTitle>Comprobación de dispositivos</CheckTitle>
+  <CheckIntro>Lee el estado de Windows y las versiones de controladores. No instala controladores ni certifica compatibilidad con el simulador.</CheckIntro>
+  <Checking>Comprobando dispositivos…</Checking>
+  <CheckDetails>Detalles de dispositivos</CheckDetails>
+  <Rescan>Comprobar de nuevo</Rescan>
+  <NoDevices>No se detectaron mandos de juego. Conecta el dispositivo y repite. Puedes continuar la instalación.</NoDevices>
+  <DataFound>datos locales encontrados</DataFound>
+  <DataNotFound>sin datos locales; el juego podría estar instalado</DataNotFound>
+  <ScanIncomplete>Parte de la información no está disponible. Puedes instalar; comprueba el Administrador de dispositivos.</ScanIncomplete>
+  <MissingDriver>falta el controlador</MissingDriver>
+  <DisabledDevice>dispositivo deshabilitado</DisabledDevice>
+  <DeviceProblem>Windows indica un problema</DeviceProblem>
+  <DeviceReady>Windows no indica errores del dispositivo</DeviceReady>
+  <UnknownDevice>desconocido</UnknownDevice>
+  <Controller>Mando de juego</Controller>
+  <OtherDevice>Otro dispositivo USB — comprueba su identidad</OtherDevice>
+  <Driver>Controlador</Driver>
+  <DriverAdvice>Consulta primero Windows Update. Si hace falta, elige el modelo exacto y la versión de Windows en la web oficial del fabricante.</DriverAdvice>
+  <ProblemAdvice>Habilita el dispositivo en el Administrador de dispositivos o reconéctalo y reinicia Windows. Sigue el código de error indicado.</ProblemAdvice>
+  <InboxDriver>Un controlador Microsoft o una fecha antigua no son un fallo por sí solos. Actualiza solo si hace falta. Prueba ejes y botones en Windows antes de transferir.</InboxDriver>
+  <Support>Soporte oficial</Support>
+  <WindowsUpdate>Windows Update</WindowsUpdate>
+  <TestControls>Probar controles</TestControls>
+  <DeviceManager>Administrador de dispositivos</DeviceManager>
+  <Guide>Flight Bridge 0.3 — Windows 10/11. Transferencia local de perfiles con copias de seguridad, sin cuenta. Versión preliminar: no se ha verificado el funcionamiento de los controles dentro del simulador.
+
+INSTALACIÓN
+Ejecuta FlightBridge-Setup.exe, elige el idioma y pulsa Instalar. No requiere permisos de administrador. Abre la aplicación desde Inicio. Para actualizar, ciérrala y ejecuta el nuevo instalador. Desinstala desde Configuración de Windows → Aplicaciones. El instalador no está firmado; Windows puede mostrar una advertencia.
+
+TRANSFERENCIA
+1. Guarda los controles en MSFS 2020 y cierra el simulador.
+2. Elige los perfiles 2020 con «Найти автоматически» (buscar automáticamente), «Файлы…» (archivos) o «Папка…» (carpeta).
+3. En MSFS 2024: Configuración → Controles → dispositivo → engranaje de categoría → Exportar. Exporta un perfil del mismo dispositivo y selecciónalo con «Выбрать файлы…».
+4. Pulsa «Проверить перенос» (comprobar transferencia). Revisa comandos ausentes, cambios de contexto y entradas compartidas.
+5. Guarda el perfil o usa «Добавить в список переноса» para añadir varios a la lista. Si la lista no está vacía, se exporta la lista.
+6. Importa cada MSFS2024-migrated.xml en la categoría correspondiente del dispositivo. Selecciona el perfil marcado FB y comprueba botones, ejes, inversión y sensibilidad antes de volar.
+
+COPIAS Y RESTAURACIÓN
+La copia de seguridad está activada por defecto. Las carpetas de sesión contienen original-2020.xml, original-2024.xml, backup.xml y report.txt. Para volver atrás, elige el perfil anterior en el juego o abre «Восстановление» (restauración), selecciona una copia, guarda el XML con un nombre nuevo e impórtalo en el juego. SHA-256 comprueba la integridad. Se guardan los perfiles seleccionados, no todos los ajustes del simulador. Sin copia no se puede restaurar mediante la aplicación.
+
+LIMITACIONES
+La interfaz y los informes de la aplicación siguen en ruso; el instalador y esta guía están traducidos. La importación en el juego es manual. Se admiten XML legibles, incluidos fragmentos con varias raíces, pero no contenedores cifrados. Los comandos KEY trasladados requieren coincidencia única y revisión en el juego. Los desconocidos se omiten. No se modifican archivos del juego ni datos en la nube. Las copias se conservan al desinstalar.
+
+ARCHIVOS
+Biblioteca predeterminada: Documentos/FlightBridge; puedes elegir otra carpeta. Última ruta: %LOCALAPPDATA%/FlightBridge/library.txt. Instalación: %LOCALAPPDATA%/Programs/FlightBridge. Guías traducidas en docs. El asistente temporal de desinstalación puede permanecer en %TEMP% hasta que Windows limpie los archivos temporales.
+
+Comprobación de dispositivos
+El instalador comprueba mandos conectados y controladores de Windows en segundo plano. Los detalles muestran códigos de error y pasos recomendados. Puedes abrir Windows Update, el Administrador de dispositivos, la prueba de controles y el soporte oficial. No se instalan controladores ni firmware automáticamente. La ausencia de un mando o una comprobación incompleta no impiden instalar. No se garantiza compatibilidad con el simulador.</Guide>
+ </Language>
+ <Language Code="it" Name="Italiano">
+  <Title>Installazione di Flight Bridge</Title>
+  <Tagline>I tuoi comandi abituali. Un nuovo simulatore.</Tagline>
+  <Description>Trasferisci i profili da MSFS 2020 a MSFS 2024.
+Con backup e ripristino.</Description>
+  <Language>Lingua</Language>
+  <Install>Installa</Install>
+  <Cancel>Annulla</Cancel>
+  <Location>Cartella di installazione (utente corrente)</Location>
+  <Help>Come funziona</Help>
+  <InstalledTitle>Installazione completata</InstalledTitle>
+  <Installed>Flight Bridge è disponibile nel menu Start. I backup restano nella cartella scelta.</Installed>
+  <InstallFailed>Installazione non riuscita</InstallFailed>
+  <CloseApp>Chiudi Flight Bridge prima di continuare.</CloseApp>
+  <RemoveTitle>Disinstalla Flight Bridge</RemoveTitle>
+  <RemoveQuestion>Rimuovere Flight Bridge? Profili e backup saranno conservati.</RemoveQuestion>
+  <Remove>Disinstalla</Remove>
+  <Removed>Flight Bridge è stato rimosso. Profili e backup sono conservati.</Removed>
+  <RemoveFailed>Disinstallazione non riuscita</RemoveFailed>
+  <WaitFailed>Impossibile attendere la chiusura del programma di installazione.</WaitFailed>
+  <LinkFolder>La cartella di installazione è un collegamento. Rimozione interrotta.</LinkFolder>
+  <OK>OK</OK>
+  <CheckTitle>Verifica dispositivi</CheckTitle>
+  <CheckIntro>Legge lo stato Windows e le versioni dei driver. Non installa driver e non certifica la compatibilità con il simulatore.</CheckIntro>
+  <Checking>Verifica dispositivi…</Checking>
+  <CheckDetails>Dettagli dispositivi</CheckDetails>
+  <Rescan>Verifica di nuovo</Rescan>
+  <NoDevices>Nessun controller di gioco rilevato. Collegalo e riprova. Puoi comunque installare.</NoDevices>
+  <DataFound>dati locali trovati</DataFound>
+  <DataNotFound>dati locali non trovati; il gioco potrebbe essere installato</DataNotFound>
+  <ScanIncomplete>Alcuni dati non sono disponibili. Puoi installare; verifica in Gestione dispositivi.</ScanIncomplete>
+  <MissingDriver>driver mancante</MissingDriver>
+  <DisabledDevice>dispositivo disabilitato</DisabledDevice>
+  <DeviceProblem>Windows segnala un problema</DeviceProblem>
+  <DeviceReady>Windows non segnala errori del dispositivo</DeviceReady>
+  <UnknownDevice>sconosciuto</UnknownDevice>
+  <Controller>Controller di gioco</Controller>
+  <OtherDevice>Altro dispositivo USB — verifica l’identità</OtherDevice>
+  <Driver>Driver</Driver>
+  <DriverAdvice>Controlla prima Windows Update. Se necessario, scegli modello esatto e versione di Windows sul sito ufficiale del produttore.</DriverAdvice>
+  <ProblemAdvice>Abilita il dispositivo in Gestione dispositivi oppure ricollegalo e riavvia Windows. Segui il codice di errore indicato.</ProblemAdvice>
+  <InboxDriver>Un driver Microsoft o una data vecchia non indicano da soli un guasto. Aggiorna solo se necessario. Prova assi e pulsanti in Windows prima del trasferimento.</InboxDriver>
+  <Support>Supporto ufficiale</Support>
+  <WindowsUpdate>Windows Update</WindowsUpdate>
+  <TestControls>Prova comandi</TestControls>
+  <DeviceManager>Gestione dispositivi</DeviceManager>
+  <Guide>Flight Bridge 0.3 — Windows 10/11. Trasferimento locale dei profili con backup, senza account. Versione preliminare: il funzionamento dei comandi nel simulatore non è ancora stato verificato.
+
+INSTALLAZIONE
+Avvia FlightBridge-Setup.exe, scegli la lingua e premi Installa. Non servono privilegi di amministratore. Apri l’app dal menu Start. Per aggiornare, chiudi l’app e avvia il nuovo installer. Disinstalla da Impostazioni Windows → App. L’installer non è firmato; Windows può mostrare un avviso.
+
+TRASFERIMENTO
+1. Salva i comandi in MSFS 2020 e chiudi il simulatore.
+2. Scegli i profili 2020 con «Найти автоматически» (ricerca automatica), «Файлы…» (file) o «Папка…» (cartella).
+3. In MSFS 2024: Impostazioni → Comandi → dispositivo → ingranaggio della categoria → Esporta. Esporta un profilo dello stesso dispositivo e selezionalo con «Выбрать файлы…».
+4. Premi «Проверить перенос» (verifica trasferimento). Controlla comandi mancanti, cambi di contesto e ingressi condivisi.
+5. Salva il profilo o usa «Добавить в список переноса» per aggiungere più profili all’elenco. Se l’elenco contiene profili, il salvataggio esporta l’elenco.
+6. Importa ogni MSFS2024-migrated.xml nella categoria corretta del dispositivo. Seleziona il profilo con FB e verifica pulsanti, assi, inversione e sensibilità prima del volo.
+
+BACKUP E RIPRISTINO
+Il backup è attivo per impostazione predefinita. Le cartelle della sessione contengono original-2020.xml, original-2024.xml, backup.xml e report.txt. Per tornare indietro, scegli il vecchio profilo nel gioco oppure apri «Восстановление» (ripristino), scegli un backup, salva il XML con un nuovo nome e importalo nel gioco. SHA-256 verifica l’integrità. Vengono salvati i profili selezionati, non tutte le impostazioni del simulatore. Senza backup non è disponibile il ripristino tramite l’app.
+
+LIMITI
+Interfaccia e rapporti dell’app sono ancora in russo; installer e guida sono tradotti. L’importazione nel gioco è manuale. Sono supportati XML leggibili, anche con più elementi radice, ma non contenitori cifrati. I comandi KEY spostati richiedono corrispondenza univoca e verifica nel gioco. I comandi sconosciuti sono ignorati. File del gioco e salvataggi cloud restano invariati. I backup restano dopo la disinstallazione.
+
+FILE
+Libreria predefinita: Documenti/FlightBridge, modificabile. Ultimo percorso: %LOCALAPPDATA%/FlightBridge/library.txt. Installazione: %LOCALAPPDATA%/Programs/FlightBridge. Guide tradotte in docs. L’assistente temporaneo di disinstallazione può restare in %TEMP% fino alla pulizia di Windows.
+
+Verifica dispositivi
+Il programma verifica controller collegati e driver Windows in background. I dettagli mostrano codici di errore e azioni consigliate. Puoi aprire Windows Update, Gestione dispositivi, il test dei comandi e il supporto ufficiale. Driver e firmware non vengono installati automaticamente. Un controller assente o una verifica incompleta non bloccano l’installazione. La verifica non garantisce la compatibilità con il simulatore.</Guide>
+ </Language>
+ <Language Code="pt" Name="Português">
+  <Title>Instalação do Flight Bridge</Title>
+  <Tagline>Os seus controlos habituais. Um novo simulador.</Tagline>
+  <Description>Transfira perfis do MSFS 2020 para o MSFS 2024.
+Com cópias de segurança e restauro.</Description>
+  <Language>Idioma</Language>
+  <Install>Instalar</Install>
+  <Cancel>Cancelar</Cancel>
+  <Location>Pasta de instalação (utilizador atual)</Location>
+  <Help>Como funciona</Help>
+  <InstalledTitle>Instalação concluída</InstalledTitle>
+  <Installed>O Flight Bridge está disponível no menu Iniciar. As cópias ficam na pasta escolhida.</Installed>
+  <InstallFailed>Falha na instalação</InstallFailed>
+  <CloseApp>Feche o Flight Bridge antes de continuar.</CloseApp>
+  <RemoveTitle>Desinstalar o Flight Bridge</RemoveTitle>
+  <RemoveQuestion>Remover o Flight Bridge? Os perfis e as cópias serão mantidos.</RemoveQuestion>
+  <Remove>Desinstalar</Remove>
+  <Removed>O Flight Bridge foi removido. Os perfis e as cópias foram mantidos.</Removed>
+  <RemoveFailed>Falha na desinstalação</RemoveFailed>
+  <WaitFailed>Não foi possível aguardar o encerramento do instalador.</WaitFailed>
+  <LinkFolder>A pasta de instalação é uma ligação. A remoção foi interrompida.</LinkFolder>
+  <OK>OK</OK>
+  <CheckTitle>Verificação de dispositivos</CheckTitle>
+  <CheckIntro>Lê o estado do Windows e as versões dos controladores. Não instala controladores nem certifica compatibilidade com o simulador.</CheckIntro>
+  <Checking>A verificar dispositivos…</Checking>
+  <CheckDetails>Detalhes dos dispositivos</CheckDetails>
+  <Rescan>Verificar novamente</Rescan>
+  <NoDevices>Nenhum comando de jogo detetado. Ligue-o e tente novamente. Pode continuar a instalação.</NoDevices>
+  <DataFound>dados locais encontrados</DataFound>
+  <DataNotFound>dados locais não encontrados; o jogo pode estar instalado</DataNotFound>
+  <ScanIncomplete>Algumas informações não estão disponíveis. Pode instalar; verifique no Gestor de Dispositivos.</ScanIncomplete>
+  <MissingDriver>controlador em falta</MissingDriver>
+  <DisabledDevice>dispositivo desativado</DisabledDevice>
+  <DeviceProblem>o Windows indica um problema</DeviceProblem>
+  <DeviceReady>o Windows não indica erros do dispositivo</DeviceReady>
+  <UnknownDevice>desconhecido</UnknownDevice>
+  <Controller>Comando de jogo</Controller>
+  <OtherDevice>Outro dispositivo USB — confirme a identidade</OtherDevice>
+  <Driver>Controlador</Driver>
+  <DriverAdvice>Verifique primeiro o Windows Update. Se necessário, escolha o modelo exato e a versão do Windows no site oficial do fabricante.</DriverAdvice>
+  <ProblemAdvice>Ative o dispositivo no Gestor de Dispositivos ou volte a ligá-lo e reinicie o Windows. Siga o código de erro indicado.</ProblemAdvice>
+  <InboxDriver>Um controlador Microsoft ou uma data antiga não são, por si, uma falha. Atualize apenas se necessário. Teste eixos e botões no Windows antes da transferência.</InboxDriver>
+  <Support>Suporte oficial</Support>
+  <WindowsUpdate>Windows Update</WindowsUpdate>
+  <TestControls>Testar controlos</TestControls>
+  <DeviceManager>Gestor de Dispositivos</DeviceManager>
+  <Guide>Flight Bridge 0.3 — Windows 10/11. Transferência local de perfis com cópias de segurança, sem conta. Versão preliminar: o funcionamento dos controlos no simulador ainda não foi verificado.
+
+INSTALAÇÃO
+Execute FlightBridge-Setup.exe, escolha o idioma e clique em Instalar. Não são necessários privilégios de administrador. Abra a aplicação no menu Iniciar. Para atualizar, feche a aplicação e execute o novo instalador. Desinstale em Definições do Windows → Aplicações. O instalador não está assinado; o Windows pode apresentar um aviso.
+
+TRANSFERÊNCIA
+1. Guarde os controlos no MSFS 2020 e feche o simulador.
+2. Escolha os perfis 2020 com «Найти автоматически» (pesquisa automática), «Файлы…» (ficheiros) ou «Папка…» (pasta).
+3. No MSFS 2024: Definições → Controlos → dispositivo → engrenagem da categoria → Exportar. Exporte um perfil do mesmo dispositivo e selecione-o com «Выбрать файлы…».
+4. Clique em «Проверить перенос» (verificar transferência). Reveja comandos em falta, mudanças de contexto e entradas partilhadas.
+5. Guarde o perfil ou use «Добавить в список переноса» para adicionar vários à lista. Se a lista não estiver vazia, a gravação exporta a lista.
+6. Importe cada MSFS2024-migrated.xml na categoria correta do dispositivo. Selecione o perfil com FB e verifique botões, eixos, inversão e sensibilidade antes de voar.
+
+CÓPIAS E RESTAURO
+As cópias estão ativas por predefinição. As pastas de sessão contêm original-2020.xml, original-2024.xml, backup.xml e report.txt. Para voltar atrás, selecione o perfil anterior no jogo ou abra «Восстановление» (restauro), escolha uma cópia, guarde o XML com um novo nome e importe-o no jogo. O SHA-256 verifica a integridade. São guardados os perfis selecionados, não todas as definições do simulador. Sem cópia não é possível restaurar pela aplicação.
+
+LIMITAÇÕES
+A interface e os relatórios da aplicação continuam em russo; o instalador e este guia estão traduzidos. A importação no jogo é manual. São suportados XML legíveis, incluindo fragmentos com várias raízes, mas não contentores cifrados. Os comandos KEY movidos exigem correspondência única e verificação no jogo. Comandos desconhecidos são ignorados. Os ficheiros do jogo e dados na nuvem não são alterados. As cópias ficam após a desinstalação.
+
+FICHEIROS
+Biblioteca predefinida: Documentos/FlightBridge; pode escolher outra pasta. Último caminho: %LOCALAPPDATA%/FlightBridge/library.txt. Instalação: %LOCALAPPDATA%/Programs/FlightBridge. Guias traduzidos em docs. O auxiliar temporário de desinstalação pode ficar em %TEMP% até à limpeza do Windows.
+
+Verificação de dispositivos
+O instalador verifica comandos ligados e controladores Windows em segundo plano. Os detalhes mostram códigos de erro e passos recomendados. Pode abrir o Windows Update, o Gestor de Dispositivos, o teste de controlos e o suporte oficial. Não são instalados controladores nem firmware automaticamente. Um comando ausente ou uma verificação incompleta não impedem a instalação. Não se garante compatibilidade com o simulador.</Guide>
+ </Language>
+ <Language Code="pl" Name="Polski">
+  <Title>Instalacja Flight Bridge</Title>
+  <Tagline>Znane sterowanie. Nowy symulator.</Tagline>
+  <Description>Przenieś profile z MSFS 2020 do MSFS 2024.
+Z kopią zapasową i przywracaniem.</Description>
+  <Language>Język</Language>
+  <Install>Zainstaluj</Install>
+  <Cancel>Anuluj</Cancel>
+  <Location>Folder instalacji (bieżący użytkownik)</Location>
+  <Help>Jak to działa</Help>
+  <InstalledTitle>Instalacja zakończona</InstalledTitle>
+  <Installed>Flight Bridge jest dostępny w menu Start. Kopie pozostają w wybranym folderze.</Installed>
+  <InstallFailed>Instalacja nie powiodła się</InstallFailed>
+  <CloseApp>Zamknij Flight Bridge przed kontynuowaniem.</CloseApp>
+  <RemoveTitle>Odinstaluj Flight Bridge</RemoveTitle>
+  <RemoveQuestion>Usunąć Flight Bridge? Profile i kopie zapasowe zostaną zachowane.</RemoveQuestion>
+  <Remove>Odinstaluj</Remove>
+  <Removed>Flight Bridge został usunięty. Profile i kopie zostały zachowane.</Removed>
+  <RemoveFailed>Odinstalowanie nie powiodło się</RemoveFailed>
+  <WaitFailed>Nie udało się zaczekać na zamknięcie instalatora.</WaitFailed>
+  <LinkFolder>Folder instalacji jest dowiązaniem. Usuwanie zostało przerwane.</LinkFolder>
+  <OK>OK</OK>
+  <CheckTitle>Sprawdzanie urządzeń</CheckTitle>
+  <CheckIntro>Odczytuje stan urządzeń Windows i wersje sterowników. Nie instaluje sterowników ani nie potwierdza zgodności z symulatorem.</CheckIntro>
+  <Checking>Sprawdzanie urządzeń…</Checking>
+  <CheckDetails>Szczegóły urządzeń</CheckDetails>
+  <Rescan>Sprawdź ponownie</Rescan>
+  <NoDevices>Nie wykryto kontrolerów gier. Podłącz urządzenie i sprawdź ponownie. Możesz kontynuować instalację.</NoDevices>
+  <DataFound>znaleziono dane lokalne</DataFound>
+  <DataNotFound>brak danych lokalnych; gra może być zainstalowana</DataNotFound>
+  <ScanIncomplete>Część danych jest niedostępna. Możesz instalować; sprawdź Menedżer urządzeń.</ScanIncomplete>
+  <MissingDriver>brak sterownika</MissingDriver>
+  <DisabledDevice>urządzenie wyłączone</DisabledDevice>
+  <DeviceProblem>Windows zgłasza problem</DeviceProblem>
+  <DeviceReady>Windows nie zgłasza błędu urządzenia</DeviceReady>
+  <UnknownDevice>nieznane</UnknownDevice>
+  <Controller>Kontroler gier</Controller>
+  <OtherDevice>Inne urządzenie USB — sprawdź tożsamość</OtherDevice>
+  <Driver>Sterownik</Driver>
+  <DriverAdvice>Najpierw sprawdź Windows Update. W razie potrzeby wybierz dokładny model i wersję Windows na oficjalnej stronie producenta.</DriverAdvice>
+  <ProblemAdvice>Włącz urządzenie w Menedżerze urządzeń albo podłącz je ponownie i uruchom Windows ponownie. Uwzględnij kod błędu.</ProblemAdvice>
+  <InboxDriver>Sterownik Microsoft lub stara data nie oznaczają same w sobie usterki. Aktualizuj tylko w razie potrzeby. Przed transferem sprawdź osie i przyciski w Windows.</InboxDriver>
+  <Support>Oficjalna pomoc</Support>
+  <WindowsUpdate>Windows Update</WindowsUpdate>
+  <TestControls>Test sterowania</TestControls>
+  <DeviceManager>Menedżer urządzeń</DeviceManager>
+  <Guide>Flight Bridge 0.3 — Windows 10/11. Lokalny transfer profili z kopiami zapasowymi, bez konta. Wersja wstępna: działanie sterowania w symulatorze nie zostało jeszcze zweryfikowane.
+
+INSTALACJA
+Uruchom FlightBridge-Setup.exe, wybierz język i kliknij Zainstaluj. Uprawnienia administratora nie są wymagane. Uruchamiaj aplikację z menu Start. Aby zaktualizować, zamknij aplikację i uruchom nowy instalator. Usuwanie: Ustawienia Windows → Aplikacje. Instalator nie jest podpisany; Windows może wyświetlić ostrzeżenie.
+
+TRANSFER
+1. Zapisz ustawienia sterowania w MSFS 2020 i zamknij symulator.
+2. Wybierz profile 2020 przez «Найти автоматически» (wyszukaj automatycznie), «Файлы…» (pliki) lub «Папка…» (folder).
+3. W MSFS 2024: Ustawienia → Sterowanie → urządzenie → koło zębate kategorii → Eksportuj. Wyeksportuj profil tego samego urządzenia i wybierz go przez «Выбрать файлы…».
+4. Kliknij «Проверить перенос» (sprawdź transfer). Przejrzyj brakujące polecenia, zmienione konteksty i wspólne wejścia.
+5. Zapisz profil lub dodaj kilka przez «Добавить в список переноса». Gdy lista nie jest pusta, zapisywana jest lista.
+6. Zaimportuj każdy MSFS2024-migrated.xml do odpowiedniej kategorii urządzenia. Wybierz profil z FB i sprawdź przyciski, osie, odwrócenie i czułość przed lotem.
+
+KOPIE I PRZYWRACANIE
+Kopie są domyślnie włączone. Foldery sesji zawierają original-2020.xml, original-2024.xml, backup.xml i report.txt. Aby cofnąć zmiany, wybierz poprzedni profil w grze albo otwórz «Восстановление» (przywracanie), wybierz kopię, zapisz XML pod nową nazwą i zaimportuj go w grze. SHA-256 sprawdza integralność. Kopiowane są wybrane profile, nie wszystkie ustawienia symulatora. Bez kopii przywracanie przez aplikację jest niedostępne.
+
+OGRANICZENIA
+Interfejs i raporty aplikacji pozostają rosyjskie; instalator i instrukcja są przetłumaczone. Import do gry jest ręczny. Obsługiwane są czytelne XML, również z wieloma elementami głównymi, ale nie zaszyfrowane kontenery. Przeniesione polecenia KEY wymagają jednoznacznego dopasowania i sprawdzenia w grze. Nieznane polecenia są pomijane. Pliki gry i zapisy w chmurze nie są zmieniane. Kopie pozostają po odinstalowaniu.
+
+PLIKI
+Domyślna biblioteka: Dokumenty/FlightBridge; można wybrać inny folder. Ostatnia ścieżka: %LOCALAPPDATA%/FlightBridge/library.txt. Instalacja: %LOCALAPPDATA%/Programs/FlightBridge. Tłumaczenia instrukcji są w docs. Tymczasowy pomocnik usuwania może pozostać w %TEMP% do oczyszczenia przez Windows.
+
+Sprawdzanie urządzeń
+Instalator sprawdza w tle podłączone kontrolery i sterowniki Windows. Szczegóły pokazują kody błędów i zalecane działania. Można otworzyć Windows Update, Menedżer urządzeń, test sterowania oraz oficjalną pomoc. Sterowniki i oprogramowanie układowe nie są instalowane automatycznie. Brak kontrolera lub niepełne sprawdzenie nie blokują instalacji. Sprawdzenie nie gwarantuje zgodności z symulatorem.</Guide>
+ </Language>
+ <Language Code="uk" Name="Українська">
+  <Title>Встановлення Flight Bridge</Title>
+  <Tagline>Знайоме керування. Новий симулятор.</Tagline>
+  <Description>Перенесення профілів MSFS 2020 → MSFS 2024.
+Резервні копії та зрозуміле відновлення.</Description>
+  <Language>Мова</Language>
+  <Install>Встановити</Install>
+  <Cancel>Скасувати</Cancel>
+  <Location>Тека встановлення (поточний користувач)</Location>
+  <Help>Як це працює</Help>
+  <InstalledTitle>Встановлення завершено</InstalledTitle>
+  <Installed>Flight Bridge доступний у меню «Пуск». Копії зберігаються у вибраній теці.</Installed>
+  <InstallFailed>Не вдалося встановити</InstallFailed>
+  <CloseApp>Закрийте Flight Bridge перед продовженням.</CloseApp>
+  <RemoveTitle>Видалення Flight Bridge</RemoveTitle>
+  <RemoveQuestion>Видалити Flight Bridge? Профілі та резервні копії залишаться.</RemoveQuestion>
+  <Remove>Видалити</Remove>
+  <Removed>Flight Bridge видалено. Профілі та резервні копії збережено.</Removed>
+  <RemoveFailed>Не вдалося видалити</RemoveFailed>
+  <WaitFailed>Не вдалося дочекатися закриття інсталятора.</WaitFailed>
+  <LinkFolder>Тека встановлення є посиланням. Видалення зупинено.</LinkFolder>
+  <OK>Гаразд</OK>
+  <CheckTitle>Перевірка пристроїв</CheckTitle>
+  <CheckIntro>Читає стан пристроїв Windows і версії драйверів. Не встановлює драйвери й не підтверджує сумісність із симулятором.</CheckIntro>
+  <Checking>Перевіряємо пристрої…</Checking>
+  <CheckDetails>Докладніше про пристрої</CheckDetails>
+  <Rescan>Перевірити знову</Rescan>
+  <NoDevices>Ігрових контролерів не знайдено. Підключіть пристрій і повторіть перевірку. Встановлення можна продовжити.</NoDevices>
+  <DataFound>знайдено локальні дані</DataFound>
+  <DataNotFound>локальні дані не знайдено; гра може бути встановлена</DataNotFound>
+  <ScanIncomplete>Частина даних недоступна. Можна продовжити встановлення; перевірте Диспетчер пристроїв.</ScanIncomplete>
+  <MissingDriver>драйвер відсутній</MissingDriver>
+  <DisabledDevice>пристрій вимкнений</DisabledDevice>
+  <DeviceProblem>Windows повідомляє про проблему</DeviceProblem>
+  <DeviceReady>Windows не повідомляє про помилку пристрою</DeviceReady>
+  <UnknownDevice>невідомо</UnknownDevice>
+  <Controller>Ігровий контролер</Controller>
+  <OtherDevice>Інший USB-пристрій — уточніть модель</OtherDevice>
+  <Driver>Драйвер</Driver>
+  <DriverAdvice>Спершу перевірте Windows Update. За потреби виберіть точну модель і версію Windows на офіційному сайті виробника.</DriverAdvice>
+  <ProblemAdvice>Увімкніть пристрій у Диспетчері пристроїв або перепідключіть його й перезапустіть Windows. Врахуйте код помилки.</ProblemAdvice>
+  <InboxDriver>Драйвер Microsoft або давня дата самі по собі не означають несправність. Оновлюйте лише за потреби. Перед перенесенням перевірте осі й кнопки в Windows.</InboxDriver>
+  <Support>Офіційна підтримка</Support>
+  <WindowsUpdate>Windows Update</WindowsUpdate>
+  <TestControls>Перевірити керування</TestControls>
+  <DeviceManager>Диспетчер пристроїв</DeviceManager>
+  <Guide>Flight Bridge 0.3 — Windows 10/11. Локальне перенесення профілів із резервними копіями, без облікового запису. Попередня версія: роботу керування в симуляторі ще не перевірено.
+
+ВСТАНОВЛЕННЯ
+Запустіть FlightBridge-Setup.exe, виберіть мову й натисніть «Встановити». Права адміністратора не потрібні. Запускайте програму з меню «Пуск». Для оновлення закрийте програму й запустіть новий інсталятор. Видалення: Параметри Windows → Програми. Інсталятор не підписаний; Windows може показати попередження.
+
+ПЕРЕНЕСЕННЯ
+1. Збережіть керування в MSFS 2020 та закрийте симулятор.
+2. Виберіть профілі 2020 через «Найти автоматически» (знайти автоматично), «Файлы…» (файли) або «Папка…» (тека).
+3. У MSFS 2024: Налаштування → Керування → пристрій → шестерня категорії → Експорт. Експортуйте профіль того самого пристрою й виберіть його через «Выбрать файлы…».
+4. Натисніть «Проверить перенос» (перевірити перенесення). Перегляньте відсутні команди, нові контексти та спільні входи.
+5. Збережіть профіль або додайте кілька через «Добавить в список переноса». Якщо список непорожній, зберігається список.
+6. Імпортуйте кожен MSFS2024-migrated.xml у потрібну категорію пристрою в грі. Виберіть профіль із FB і перевірте кнопки, осі, інверсію та чутливість перед польотом.
+
+КОПІЇ ТА ВІДНОВЛЕННЯ
+Копіювання ввімкнене за замовчуванням. Теки сесії містять original-2020.xml, original-2024.xml, backup.xml і report.txt. Для повернення виберіть попередній профіль у грі або відкрийте «Восстановление» (відновлення), виберіть копію, збережіть XML під новим ім’ям та імпортуйте в гру. SHA-256 перевіряє цілісність. Копіюються вибрані профілі, не всі налаштування симулятора. Без копії відновлення через програму недоступне.
+
+ОБМЕЖЕННЯ
+Інтерфейс програми та звіти поки російською; інсталятор і посібник перекладені. Імпорт у гру виконується вручну. Підтримуються читабельні XML, зокрема без спільного кореня, але не зашифровані контейнери. Переміщені KEY-команди потребують однозначного збігу та перевірки у грі. Невідомі команди пропускаються. Файли гри й хмарні збереження не змінюються. Копії залишаються після видалення.
+
+ФАЙЛИ
+Типова бібліотека: Документи/FlightBridge; можна вибрати іншу теку. Останній шлях: %LOCALAPPDATA%/FlightBridge/library.txt. Встановлення: %LOCALAPPDATA%/Programs/FlightBridge. Переклади посібника — у docs. Тимчасовий помічник видалення може залишатися в %TEMP% до очищення Windows.
+
+Перевірка пристроїв
+Інсталятор у тлі перевіряє підключені контролери та драйвери Windows. Відомості про пристрої містять коди помилок і рекомендовані дії. Можна відкрити Windows Update, Диспетчер пристроїв, перевірку керування Windows та офіційну підтримку. Драйвери й прошивки не встановлюються автоматично. Відсутність контролера чи неповна перевірка не блокують встановлення. Сумісність із симулятором не гарантується.</Guide>
+ </Language>
+ <Language Code="tr" Name="Türkçe">
+  <Title>Flight Bridge Kurulumu</Title>
+  <Tagline>Alıştığınız kontroller. Yeni bir simülatör.</Tagline>
+  <Description>MSFS 2020 profillerini MSFS 2024'e aktarın.
+Yedekleme ve geri yükleme ile.</Description>
+  <Language>Dil</Language>
+  <Install>Yükle</Install>
+  <Cancel>İptal</Cancel>
+  <Location>Kurulum klasörü (geçerli kullanıcı)</Location>
+  <Help>Nasıl çalışır?</Help>
+  <InstalledTitle>Kurulum tamamlandı</InstalledTitle>
+  <Installed>Flight Bridge Başlat menüsünde hazır. Yedekler seçtiğiniz klasörde kalır.</Installed>
+  <InstallFailed>Kurulum başarısız</InstallFailed>
+  <CloseApp>Devam etmeden önce Flight Bridge'i kapatın.</CloseApp>
+  <RemoveTitle>Flight Bridge'i kaldır</RemoveTitle>
+  <RemoveQuestion>Flight Bridge kaldırılsın mı? Profiller ve yedekler korunacaktır.</RemoveQuestion>
+  <Remove>Kaldır</Remove>
+  <Removed>Flight Bridge kaldırıldı. Profilleriniz ve yedekleriniz korundu.</Removed>
+  <RemoveFailed>Kaldırma başarısız</RemoveFailed>
+  <WaitFailed>Kurulum programının kapanması beklenemedi.</WaitFailed>
+  <LinkFolder>Kurulum klasörü bir bağlantı. Kaldırma durduruldu.</LinkFolder>
+  <OK>Tamam</OK>
+  <CheckTitle>Cihaz denetimi</CheckTitle>
+  <CheckIntro>Windows cihaz durumunu ve sürücü sürümlerini okur. Sürücü yüklemez veya simülatör uyumluluğunu onaylamaz.</CheckIntro>
+  <Checking>Cihazlar denetleniyor…</Checking>
+  <CheckDetails>Cihaz ayrıntıları</CheckDetails>
+  <Rescan>Yeniden denetle</Rescan>
+  <NoDevices>Oyun kumandası bulunamadı. Cihazı bağlayıp yeniden denetleyin. Kuruluma devam edebilirsiniz.</NoDevices>
+  <DataFound>yerel veriler bulundu</DataFound>
+  <DataNotFound>yerel veri bulunamadı; oyun yine de yüklü olabilir</DataNotFound>
+  <ScanIncomplete>Bazı bilgiler alınamadı. Kurulum sürebilir; Aygıt Yöneticisi'nden denetleyin.</ScanIncomplete>
+  <MissingDriver>sürücü eksik</MissingDriver>
+  <DisabledDevice>cihaz devre dışı</DisabledDevice>
+  <DeviceProblem>Windows bir sorun bildiriyor</DeviceProblem>
+  <DeviceReady>Windows cihaz hatası bildirmiyor</DeviceReady>
+  <UnknownDevice>bilinmiyor</UnknownDevice>
+  <Controller>Oyun kumandası</Controller>
+  <OtherDevice>Diğer USB cihazı — kimliğini denetleyin</OtherDevice>
+  <Driver>Sürücü</Driver>
+  <DriverAdvice>Önce Windows Update'i denetleyin. Gerekirse üreticinin resmî sitesinde doğru modeli ve Windows sürümünü seçin.</DriverAdvice>
+  <ProblemAdvice>Cihazı Aygıt Yöneticisi'nde etkinleştirin veya yeniden bağlayıp Windows'u yeniden başlatın. Hata kodunu dikkate alın.</ProblemAdvice>
+  <InboxDriver>Microsoft sürücüsü veya eski tarih tek başına arıza değildir. Yalnızca gerekirse güncelleyin. Aktarım öncesinde eksenleri ve düğmeleri Windows'ta test edin.</InboxDriver>
+  <Support>Resmî destek</Support>
+  <WindowsUpdate>Windows Update</WindowsUpdate>
+  <TestControls>Kontrolleri test et</TestControls>
+  <DeviceManager>Aygıt Yöneticisi</DeviceManager>
+  <Guide>Flight Bridge 0.3 — Windows 10/11. Hesap gerektirmeyen, yedeklemeli yerel profil aktarımı. Ön sürümdür; kontrollerin simülatör içindeki çalışması henüz doğrulanmadı.
+
+KURULUM
+FlightBridge-Setup.exe dosyasını çalıştırın, dili seçip Yükle'ye tıklayın. Yönetici yetkisi gerekmez. Uygulamayı Başlat menüsünden açın. Güncellemek için uygulamayı kapatıp yeni kurucuyu çalıştırın. Kaldırma: Windows Ayarları → Uygulamalar. Kurucu imzasızdır; Windows uyarı gösterebilir.
+
+AKTARIM
+1. MSFS 2020'de kontrol ayarlarını kaydedip simülatörü kapatın.
+2. 2020 profillerini «Найти автоматически» (otomatik bul), «Файлы…» (dosyalar) veya «Папка…» (klasör) ile seçin.
+3. MSFS 2024'te: Ayarlar → Kontroller → cihaz → kategori dişlisi → Dışa aktar. Aynı cihazın profilini dışa aktarın ve «Выбрать файлы…» ile seçin.
+4. «Проверить перенос» (aktarımı denetle) düğmesine basın. Eksik komutları, değişen bağlamları ve ortak girişleri inceleyin.
+5. Profili kaydedin veya birden fazla profil için «Добавить в список переноса» ile listeye ekleyin. Liste doluysa kaydetme işlemi listeyi dışa aktarır.
+6. Her MSFS2024-migrated.xml dosyasını oyunda ilgili cihaz kategorisine aktarın. FB işaretli profili seçin; uçuş öncesinde düğmeleri, eksenleri, ters yönü ve hassasiyeti denetleyin.
+
+YEDEKLEME VE GERİ YÜKLEME
+Yedekleme varsayılan olarak açıktır. Oturum klasörlerinde original-2020.xml, original-2024.xml, backup.xml ve report.txt bulunur. Geri dönmek için oyundaki eski profili seçin veya «Восстановление» (geri yükleme) bölümünden yedeği seçip XML'i yeni adla kaydedin ve oyuna aktarın. SHA-256 bütünlüğü denetler. Yalnızca seçilen profiller yedeklenir, tüm simülatör ayarları değil. Yedekleme kapalıysa uygulamayla geri yükleme yapılamaz.
+
+SINIRLAMALAR
+Uygulama arayüzü ve raporlar halen Rusçadır; kurucu ve bu kılavuz çevrilmiştir. Oyuna aktarım elle yapılır. Birden fazla kök içeren parçalar dahil okunabilir XML desteklenir; şifreli kapsayıcılar desteklenmez. Taşınan KEY komutları tekil eşleşme ve oyun içi kontrol gerektirir. Bilinmeyen komutlar atlanır. Oyun dosyaları ve bulut kayıtları değiştirilmez. Kaldırma sonrasında yedekler korunur.
+
+DOSYALAR
+Varsayılan kitaplık: Belgeler/FlightBridge; başka klasör seçilebilir. Son konum: %LOCALAPPDATA%/FlightBridge/library.txt. Kurulum: %LOCALAPPDATA%/Programs/FlightBridge. Çevrilmiş kılavuzlar docs klasöründedir. Geçici kaldırma yardımcısı Windows temizleyene kadar %TEMP% içinde kalabilir.
+
+Cihaz denetimi
+Kurucu bağlı kumandaları ve Windows sürücülerini arka planda denetler. Ayrıntılar hata kodlarını ve önerilen adımları gösterir. Windows Update, Aygıt Yöneticisi, kontrol testi ve resmî destek açılabilir. Sürücü ve aygıt yazılımı otomatik yüklenmez. Kumanda bulunamaması veya eksik denetim kurulumu engellemez. Simülatör uyumluluğu garanti edilmez.</Guide>
+ </Language>
+ <Language Code="zh" Name="简体中文">
+  <Title>Flight Bridge 安装程序</Title>
+  <Tagline>熟悉的操控，全新的模拟器。</Tagline>
+  <Description>将 MSFS 2020 控制器配置迁移到 MSFS 2024。
+支持备份与恢复。</Description>
+  <Language>语言</Language>
+  <Install>安装</Install>
+  <Cancel>取消</Cancel>
+  <Location>安装文件夹（当前用户）</Location>
+  <Help>使用说明</Help>
+  <InstalledTitle>安装完成</InstalledTitle>
+  <Installed>可从开始菜单启动 Flight Bridge。备份保存在您选择的文件夹中。</Installed>
+  <InstallFailed>安装失败</InstallFailed>
+  <CloseApp>请先关闭 Flight Bridge 再继续。</CloseApp>
+  <RemoveTitle>卸载 Flight Bridge</RemoveTitle>
+  <RemoveQuestion>要卸载 Flight Bridge 吗？配置和备份将予以保留。</RemoveQuestion>
+  <Remove>卸载</Remove>
+  <Removed>Flight Bridge 已卸载。配置和备份已保留。</Removed>
+  <RemoveFailed>卸载失败</RemoveFailed>
+  <WaitFailed>无法等待安装程序关闭。</WaitFailed>
+  <LinkFolder>安装文件夹是链接，已停止卸载。</LinkFolder>
+  <OK>确定</OK>
+  <CheckTitle>设备检查</CheckTitle>
+  <CheckIntro>读取 Windows 设备状态和已安装的驱动版本。不会安装驱动，也不保证模拟器兼容性。</CheckIntro>
+  <Checking>正在检查设备…</Checking>
+  <CheckDetails>设备详情</CheckDetails>
+  <Rescan>重新检查</Rescan>
+  <NoDevices>未检测到游戏控制器。请连接设备后重试。仍可继续安装。</NoDevices>
+  <DataFound>找到本地数据</DataFound>
+  <DataNotFound>未找到本地数据，但游戏可能已安装</DataNotFound>
+  <ScanIncomplete>部分信息不可用。可继续安装，并在设备管理器中手动检查。</ScanIncomplete>
+  <MissingDriver>缺少驱动</MissingDriver>
+  <DisabledDevice>设备已禁用</DisabledDevice>
+  <DeviceProblem>Windows 报告存在问题</DeviceProblem>
+  <DeviceReady>Windows 未报告设备错误</DeviceReady>
+  <UnknownDevice>未知</UnknownDevice>
+  <Controller>游戏控制器</Controller>
+  <OtherDevice>其他 USB 设备，请核对身份</OtherDevice>
+  <Driver>驱动</Driver>
+  <DriverAdvice>先检查 Windows 更新。如有必要，请在制造商官网选择准确型号和 Windows 版本。</DriverAdvice>
+  <ProblemAdvice>在设备管理器中启用设备，或重新连接并重启 Windows。请按照报告的错误代码处理。</ProblemAdvice>
+  <InboxDriver>Microsoft 驱动或较旧的驱动日期本身并非故障。仅在必要时更新。迁移前请在 Windows 中测试轴和按钮。</InboxDriver>
+  <Support>官方支持</Support>
+  <WindowsUpdate>Windows 更新</WindowsUpdate>
+  <TestControls>测试操控</TestControls>
+  <DeviceManager>设备管理器</DeviceManager>
+  <Guide>Flight Bridge 0.3 — Windows 10/11。本地配置迁移工具，支持备份，无需账户。此为预览版，尚未在模拟器内验证实际操控效果。
+
+安装
+运行 FlightBridge-Setup.exe，选择语言并点击“安装”。无需管理员权限。从开始菜单启动。更新时先关闭程序，再运行新版安装程序。卸载路径：Windows 设置 → 应用。安装程序未签名，Windows 可能显示警告。
+
+迁移
+1. 在 MSFS 2020 中保存控制设置并关闭模拟器。
+2. 使用 «Найти автоматически»（自动查找）、«Файлы…»（文件）或 «Папка…»（文件夹）选择 2020 配置。
+3. 在 MSFS 2024 中打开：设置 → 控制 → 设备 → 类别齿轮 → 导出。导出同一设备的配置，再用 «Выбрать файлы…» 选择文件。
+4. 点击 «Проверить перенос»（检查迁移）。查看缺失命令、上下文变化及共享输入提示。
+5. 保存当前配置，或通过 «Добавить в список переноса» 将多个配置加入迁移列表。列表非空时，保存按钮导出整个列表。
+6. 在游戏中将各个 MSFS2024-migrated.xml 导入对应设备类别。选中带 FB 标记的新配置，并在飞行前检查按钮、轴、反向及灵敏度。
+
+备份与恢复
+默认启用备份。会话文件夹包含 original-2020.xml、original-2024.xml、backup.xml 和 report.txt。回退时可直接在游戏中选择旧配置；也可打开 «Восстановление»（恢复），选取备份，将恢复的 XML 另存为新文件名，再导入游戏。SHA-256 用于验证完整性。备份仅包含选中的配置，不是模拟器的全部设置。关闭备份后，无法通过程序恢复。
+
+限制
+主程序界面和报告目前仍为俄语；安装程序和本说明已翻译。导入游戏需手动完成。支持可读取的 XML，包括无统一根节点的片段，不支持加密容器。移至其他上下文的 KEY 命令必须唯一匹配，并需在游戏中检查。未知命令会跳过。不会修改原始游戏文件或云存档。卸载后保留备份。
+
+文件
+默认备份库：文档/FlightBridge，可选择其他文件夹。上次位置保存在 %LOCALAPPDATA%/FlightBridge/library.txt。安装位置：%LOCALAPPDATA%/Programs/FlightBridge。各语言说明位于 docs。临时卸载助手可能保留在 %TEMP%，直到 Windows 清理临时文件。
+
+设备检查
+安装程序在后台检查已连接的控制器和 Windows 驱动状态。设备详情显示错误代码和建议步骤。可打开 Windows 更新、设备管理器、操控测试和官方支持。不会自动安装驱动或固件。未连接控制器或检查不完整不影响安装。此检查不保证模拟器兼容性。</Guide>
+ </Language>
+ <Language Code="ja" Name="日本語">
+  <Title>Flight Bridge セットアップ</Title>
+  <Tagline>慣れた操作で、新しいシミュレーターへ。</Tagline>
+  <Description>MSFS 2020 の設定を MSFS 2024 に移行。
+バックアップと復元に対応。</Description>
+  <Language>言語</Language>
+  <Install>インストール</Install>
+  <Cancel>キャンセル</Cancel>
+  <Location>インストール先（現在のユーザー）</Location>
+  <Help>使い方</Help>
+  <InstalledTitle>インストール完了</InstalledTitle>
+  <Installed>スタートメニューから Flight Bridge を起動できます。バックアップは選択したフォルダーに保存されます。</Installed>
+  <InstallFailed>インストール失敗</InstallFailed>
+  <CloseApp>続行する前に Flight Bridge を終了してください。</CloseApp>
+  <RemoveTitle>Flight Bridge の削除</RemoveTitle>
+  <RemoveQuestion>Flight Bridge を削除しますか？プロファイルとバックアップは保持されます。</RemoveQuestion>
+  <Remove>削除</Remove>
+  <Removed>Flight Bridge を削除しました。プロファイルとバックアップは保持されています。</Removed>
+  <RemoveFailed>削除失敗</RemoveFailed>
+  <WaitFailed>セットアップの終了を待機できませんでした。</WaitFailed>
+  <LinkFolder>インストール先がリンクのため、削除を中止しました。</LinkFolder>
+  <OK>OK</OK>
+  <CheckTitle>デバイス確認</CheckTitle>
+  <CheckIntro>Windows の状態とドライバーのバージョンを読み取ります。ドライバーのインストールや互換性の保証は行いません。</CheckIntro>
+  <Checking>デバイスを確認中…</Checking>
+  <CheckDetails>デバイスの詳細</CheckDetails>
+  <Rescan>再確認</Rescan>
+  <NoDevices>ゲームコントローラーが見つかりません。接続して再確認してください。インストールは続行できます。</NoDevices>
+  <DataFound>ローカルデータあり</DataFound>
+  <DataNotFound>ローカルデータなし。ゲームが未インストールとは限りません</DataNotFound>
+  <ScanIncomplete>一部の情報を取得できません。インストールは可能です。デバイスマネージャーで確認してください。</ScanIncomplete>
+  <MissingDriver>ドライバーなし</MissingDriver>
+  <DisabledDevice>デバイス無効</DisabledDevice>
+  <DeviceProblem>Windows が問題を報告</DeviceProblem>
+  <DeviceReady>Windows にデバイスエラーの報告なし</DeviceReady>
+  <UnknownDevice>不明</UnknownDevice>
+  <Controller>ゲームコントローラー</Controller>
+  <OtherDevice>その他の USB デバイス — 機種を確認</OtherDevice>
+  <Driver>ドライバー</Driver>
+  <DriverAdvice>まず Windows Update を確認してください。必要ならメーカー公式サイトで正確な機種と Windows バージョンを選びます。</DriverAdvice>
+  <ProblemAdvice>デバイスマネージャーで有効にするか、再接続して Windows を再起動してください。エラーコードに従って対処します。</ProblemAdvice>
+  <InboxDriver>Microsoft 製ドライバーや古い日付だけで故障とは判断しません。必要な場合のみ更新し、移行前に Windows で軸とボタンをテストしてください。</InboxDriver>
+  <Support>公式サポート</Support>
+  <WindowsUpdate>Windows Update</WindowsUpdate>
+  <TestControls>操作テスト</TestControls>
+  <DeviceManager>デバイスマネージャー</DeviceManager>
+  <Guide>Flight Bridge 0.3 — Windows 10/11。バックアップ対応のローカル設定移行ツール。アカウントは不要です。プレビュー版であり、シミュレーター内での操作は未検証です。
+
+インストール
+FlightBridge-Setup.exe を実行し、言語を選んでインストールを押します。管理者権限は不要です。スタートメニューから起動します。更新時はアプリを終了して新しいセットアップを実行します。削除は Windows の設定 → アプリから行います。インストーラーは未署名のため、Windows が警告を表示する場合があります。
+
+移行
+1. MSFS 2020 で操作設定を保存し、シミュレーターを終了します。
+2. «Найти автоматически»（自動検索）、«Файлы…»（ファイル）、«Папка…»（フォルダー）で 2020 の設定を選びます。
+3. MSFS 2024 の設定 → コントロール → デバイス → カテゴリの歯車 → エクスポートで同じデバイスの設定を書き出し、«Выбрать файлы…» で選択します。
+4. «Проверить перенос»（移行を確認）を押し、未対応のコマンド、コンテキスト変更、入力の重複を確認します。
+5. 設定を保存するか、«Добавить в список переноса» で複数の設定をリストに追加します。リストが空でなければ、保存操作はリスト全体を書き出します。
+6. 各 MSFS2024-migrated.xml をゲーム内の該当デバイス・カテゴリにインポートします。FB 付きの新しい設定を選び、飛行前にボタン、軸、反転、感度を確認してください。
+
+バックアップと復元
+バックアップは初期状態で有効です。各セッションのフォルダーには original-2020.xml、original-2024.xml、backup.xml、report.txt があります。戻すにはゲーム内で以前の設定を選ぶか、«Восстановление»（復元）からバックアップを選び、XML を別名で保存してゲームにインポートします。SHA-256 で整合性を検証します。対象は選択した設定のみで、シミュレーター全体の設定ではありません。バックアップを無効にするとアプリから復元できません。
+
+制限
+アプリの画面とレポートは現在ロシア語です。インストーラーと本ガイドは翻訳済みです。ゲームへのインポートは手動です。共通ルートのない断片を含む読み取り可能な XML に対応しますが、暗号化コンテナーは対象外です。移動された KEY コマンドは一意の一致とゲーム内での確認が必要です。不明なコマンドはスキップします。元のゲームファイルやクラウド保存は変更せず、削除後もバックアップを保持します。
+
+ファイル
+標準ライブラリは ドキュメント/FlightBridge で、別の場所も選べます。最後の場所は %LOCALAPPDATA%/FlightBridge/library.txt に記録されます。インストール先は %LOCALAPPDATA%/Programs/FlightBridge、翻訳ガイドは docs 内です。一時的な削除ヘルパーは Windows のクリーンアップまで %TEMP% に残る場合があります。
+
+デバイス確認
+セットアップはコントローラーと Windows ドライバーの状態をバックグラウンドで確認します。詳細でエラーコードと対処方法を確認できます。Windows Update、デバイスマネージャー、操作テスト、公式サポートを開けます。ドライバーやファームウェアは自動インストールしません。コントローラーがなくても確認が不完全でもインストールできます。互換性は保証しません。</Guide>
+ </Language>
+ <Language Code="ko" Name="한국어">
+  <Title>Flight Bridge 설치</Title>
+  <Tagline>익숙한 조작으로 새로운 시뮬레이터로.</Tagline>
+  <Description>MSFS 2020 프로필을 MSFS 2024로 이전합니다.
+백업 및 복원을 지원합니다.</Description>
+  <Language>언어</Language>
+  <Install>설치</Install>
+  <Cancel>취소</Cancel>
+  <Location>설치 폴더 (현재 사용자)</Location>
+  <Help>사용 방법</Help>
+  <InstalledTitle>설치 완료</InstalledTitle>
+  <Installed>시작 메뉴에서 Flight Bridge를 실행할 수 있습니다. 백업은 선택한 폴더에 저장됩니다.</Installed>
+  <InstallFailed>설치 실패</InstallFailed>
+  <CloseApp>계속하기 전에 Flight Bridge를 종료하세요.</CloseApp>
+  <RemoveTitle>Flight Bridge 제거</RemoveTitle>
+  <RemoveQuestion>Flight Bridge를 제거할까요? 프로필과 백업은 유지됩니다.</RemoveQuestion>
+  <Remove>제거</Remove>
+  <Removed>Flight Bridge가 제거되었습니다. 프로필과 백업은 유지됩니다.</Removed>
+  <RemoveFailed>제거 실패</RemoveFailed>
+  <WaitFailed>설치 프로그램이 닫힐 때까지 기다릴 수 없습니다.</WaitFailed>
+  <LinkFolder>설치 폴더가 링크이므로 제거를 중단했습니다.</LinkFolder>
+  <OK>확인</OK>
+  <CheckTitle>장치 확인</CheckTitle>
+  <CheckIntro>Windows 장치 상태와 설치된 드라이버 버전을 읽습니다. 드라이버를 설치하거나 시뮬레이터 호환성을 보증하지 않습니다.</CheckIntro>
+  <Checking>장치 확인 중…</Checking>
+  <CheckDetails>장치 세부 정보</CheckDetails>
+  <Rescan>다시 확인</Rescan>
+  <NoDevices>게임 컨트롤러를 찾지 못했습니다. 장치를 연결하고 다시 확인하세요. 설치는 계속할 수 있습니다.</NoDevices>
+  <DataFound>로컬 데이터 발견</DataFound>
+  <DataNotFound>로컬 데이터 없음. 게임이 설치되어 있을 수도 있습니다</DataNotFound>
+  <ScanIncomplete>일부 정보를 가져오지 못했습니다. 설치는 가능하며 장치 관리자에서 직접 확인하세요.</ScanIncomplete>
+  <MissingDriver>드라이버 없음</MissingDriver>
+  <DisabledDevice>장치 사용 안 함</DisabledDevice>
+  <DeviceProblem>Windows에서 문제 보고</DeviceProblem>
+  <DeviceReady>Windows에서 장치 오류를 보고하지 않음</DeviceReady>
+  <UnknownDevice>알 수 없음</UnknownDevice>
+  <Controller>게임 컨트롤러</Controller>
+  <OtherDevice>다른 USB 장치 — 모델 확인 필요</OtherDevice>
+  <Driver>드라이버</Driver>
+  <DriverAdvice>먼저 Windows 업데이트를 확인하세요. 필요하면 제조사 공식 사이트에서 정확한 모델과 Windows 버전을 선택하세요.</DriverAdvice>
+  <ProblemAdvice>장치 관리자에서 활성화하거나 다시 연결한 뒤 Windows를 재시작하세요. 표시된 오류 코드를 확인하세요.</ProblemAdvice>
+  <InboxDriver>Microsoft 드라이버나 오래된 날짜 자체는 고장이 아닙니다. 필요한 경우에만 업데이트하세요. 이전 전에 Windows에서 축과 버튼을 테스트하세요.</InboxDriver>
+  <Support>공식 지원</Support>
+  <WindowsUpdate>Windows 업데이트</WindowsUpdate>
+  <TestControls>조작 테스트</TestControls>
+  <DeviceManager>장치 관리자</DeviceManager>
+  <Guide>Flight Bridge 0.3 — Windows 10/11. 계정 없이 사용하는 로컬 프로필 이전 및 백업 도구입니다. 미리 보기 버전이며 시뮬레이터 내 실제 조작은 아직 검증되지 않았습니다.
+
+설치
+FlightBridge-Setup.exe를 실행하고 언어를 선택한 뒤 설치를 누릅니다. 관리자 권한은 필요하지 않습니다. 시작 메뉴에서 실행합니다. 업데이트하려면 앱을 닫고 새 설치 프로그램을 실행하세요. 제거: Windows 설정 → 앱. 설치 프로그램은 서명되지 않았으므로 Windows 경고가 나타날 수 있습니다.
+
+이전
+1. MSFS 2020에서 조작 설정을 저장하고 시뮬레이터를 종료합니다.
+2. «Найти автоматически» (자동 검색), «Файлы…» (파일), «Папка…» (폴더)로 2020 프로필을 선택합니다.
+3. MSFS 2024에서 설정 → 조작 → 장치 → 범주 톱니바퀴 → 내보내기를 엽니다. 같은 장치의 프로필을 내보낸 뒤 «Выбрать файлы…»로 선택합니다.
+4. «Проверить перенос» (이전 확인)을 눌러 누락 명령, 컨텍스트 변경 및 공유 입력을 확인합니다.
+5. 프로필을 저장하거나 «Добавить в список переноса»로 여러 프로필을 목록에 추가합니다. 목록이 비어 있지 않으면 저장 버튼은 목록 전체를 내보냅니다.
+6. 각 MSFS2024-migrated.xml을 게임의 해당 장치 범주로 가져옵니다. FB 표시가 있는 새 프로필을 선택하고 비행 전에 버튼, 축, 반전 및 감도를 점검합니다.
+
+백업 및 복원
+백업은 기본으로 활성화됩니다. 세션 폴더에는 original-2020.xml, original-2024.xml, backup.xml, report.txt가 있습니다. 되돌리려면 게임에서 이전 프로필을 선택하거나 «Восстановление» (복원)에서 백업을 선택하고 XML을 새 이름으로 저장한 뒤 게임으로 가져옵니다. SHA-256으로 무결성을 확인합니다. 선택한 프로필만 백업하며 시뮬레이터 전체 설정은 포함하지 않습니다. 백업을 끄면 앱을 통한 복원이 불가능합니다.
+
+제한 사항
+앱 화면과 보고서는 현재 러시아어이며 설치 프로그램과 이 안내서는 번역되어 있습니다. 게임으로 가져오기는 수동입니다. 공통 루트가 없는 조각을 포함한 읽을 수 있는 XML을 지원하지만 암호화된 컨테이너는 지원하지 않습니다. 이동된 KEY 명령은 유일한 일치 항목과 게임 내 확인이 필요합니다. 알 수 없는 명령은 건너뜁니다. 원본 게임 파일과 클라우드 저장은 변경하지 않으며 제거 후에도 백업을 유지합니다.
+
+파일
+기본 라이브러리는 문서/FlightBridge이며 다른 폴더를 선택할 수 있습니다. 마지막 위치는 %LOCALAPPDATA%/FlightBridge/library.txt에 기록됩니다. 설치 위치는 %LOCALAPPDATA%/Programs/FlightBridge이며 번역 안내서는 docs에 있습니다. 임시 제거 도우미는 Windows에서 정리할 때까지 %TEMP%에 남을 수 있습니다.
+
+장치 확인
+설치 프로그램은 컨트롤러와 Windows 드라이버 상태를 백그라운드에서 확인합니다. 세부 정보에 오류 코드와 권장 조치가 표시됩니다. Windows 업데이트, 장치 관리자, 조작 테스트 및 공식 지원을 열 수 있습니다. 드라이버와 펌웨어는 자동 설치하지 않습니다. 컨트롤러가 없거나 확인이 불완전해도 설치할 수 있습니다. 호환성을 보장하지 않습니다.</Guide>
+ </Language>
+</Languages>
+
