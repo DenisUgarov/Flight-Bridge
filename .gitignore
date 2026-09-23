@@ -1,0 +1,28 @@
+# Build products
+dist/
+bin/
+obj/
+.vs/
+.validation/
+*.exe
+*.dll
+*.pdb
+*.zip
+
+# Signing material and local preferences
+*.pfx
+*.p12
+*.key
+*.user
+*.suo
+
+# Local diagnostics, captured game data and generated screenshots
+tests/fixtures/real-2024-archive/
+tests/external/*.xml
+tests/screenshots/
+tests/device-check.txt
+docs/DIAGNOSTICS-*.md
+CONTINUE_HERE.txt
+PROJECT_STATUS.md
+FILE_MANIFEST_SHA256.txt
+
